@@ -1,35 +1,36 @@
 package character;
 
+import character.defensiveEquipment.DefensiveEquipment;
+import character.offensiveEquipment.OffensiveEquipment;
+
 public class Character {
     String type;
     String name;
     int life;
     int attack;
-    String weapon;
-    String defense;
 
     public Character() {
 
 
     }
     public Character(String name) {
-        name = name;
+        this.name = name;
     }
 
     public Character(String type, String name) {
-        type = type.toLowerCase();
-        name = name;
+        this.type = type.toLowerCase();
+        this.name = name;
 
         if (type.equals("warrior")){
             life = 10;
             attack = 10;
-            weapon = "sword";
-            defense = "shield";
+            OffensiveEquipment offensiveEquipment = new OffensiveEquipment("weapon", "sword");
+            DefensiveEquipment defensiveEquipment = new DefensiveEquipment("shield", "wood");
         } else if (type.equals("wizard")){
             life = 6;
             attack = 15;
-            weapon = "spell";
-            defense = "filter";
+            OffensiveEquipment offensiveEquipment = new OffensiveEquipment("spell", "fire ball");
+            DefensiveEquipment defensiveEquipment = new DefensiveEquipment("filter", "defense filter");
         }
     }
 }
