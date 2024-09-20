@@ -20,15 +20,21 @@ public class Game {
 
     public void play(Character character) throws InterruptedException {
 
-        while (firstCharacter<64) {
+        do {
             System.out.println("turn number : " + turn);
             System.out.println(character.getName() + "is on square nb" + firstCharacter);
             diceRoll = new DiceRoll().getDice();
             firstCharacter+=diceRoll;
-
             turn++;
             TimeUnit.SECONDS.sleep(1);
-        }
-        System.out.println();
+
+            if(firstCharacter >=64) {
+                firstCharacter = 64;
+                System.out.println("turn number : " + turn);
+                System.out.println(character.getName() + "is on square nb" + firstCharacter);
+            }
+
+        } while (firstCharacter<64);
+
     }
 }

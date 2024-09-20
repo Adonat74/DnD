@@ -4,7 +4,7 @@ import character.defensiveEquipment.DefensiveEquipment;
 import character.offensiveEquipment.OffensiveEquipment;
 
 public class Character {
-    private String type;
+    private int type;
     private String name;
     private int life;
     private int attack;
@@ -16,16 +16,16 @@ public class Character {
     public Character(String name) {
         this.name = name;
     }
-    public Character(String type, String name) {
-        this.type = type.toLowerCase();
+    public Character(int type, String name) {
+        this.type = type;
         this.name = name;
 
-        if (type.equals("warrior")){
+        if (type==1){
             this.life = 10;
             this.attack = 10;
             this.offensiveEquipment = new OffensiveEquipment("weapon", "sword");
             this.defensiveEquipment = new DefensiveEquipment("shield", "wood");
-        } else if (type.equals("wizard")){
+        } else if (type==2){
             this.life = 6;
             this.attack = 15;
             this.offensiveEquipment = new OffensiveEquipment("spell", "fire ball");
@@ -41,7 +41,7 @@ public class Character {
         System.out.println("Weapon type: " + offensiveEquipment.getType() + ", Weapon name: " + offensiveEquipment.getName() + ", Weapon attack level: " + offensiveEquipment.getAttackLevel());
         System.out.println("Defense type: " + defensiveEquipment.getType() + ", Defense name: " + defensiveEquipment.getName() + ", Defense level: " + defensiveEquipment.getDefenseLevel());
     }
-    public String getType() {
+    public int getType() {
         return this.type;
     }
 

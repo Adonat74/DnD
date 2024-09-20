@@ -6,50 +6,55 @@ import game.Game;
 
 public class Menu {
     private Character character;
+    private int choice = 0;
+
+    private boolean isPlaying;
+
+    public Menu() {
+        this.isPlaying = true;
+    }
 
     public void menuChoice() throws InterruptedException {
         Scanner scan = new Scanner(System.in);
         Game game = new Game();
 
-
-        System.out.println("Choice : \"Character creation\" \"Quit game\"");
-
-//        start the game with a choice between quit or create character
-        String choice = "";
-        while (!choice.equals("Quit game") && !choice.equals("Character creation")) {
-            choice = scan.nextLine();
-            if (choice.equals("Character creation")){
+//      start the game with a choice between quit or create character
+        while (choice!=2 && choice!=1) {
+            System.out.println("Choice > 1: Character creation 2: Quit game");
+            choice = scan.nextInt();
+            if (choice==1){
                 createCharacter(scan);
-            } else if (choice.equals("Quit game")){
+            } else if (choice==2){
                 System.exit(0);
-            } else {
-                System.out.println("wrong Choice : \"Character creation\" \"Quit game\"");
             }
         }
 
-        System.out.println("Choice : \"Play\" \"Quit game\"");
-        while (!choice.equals("Quit game") && !choice.equals("Play")) {
-            choice = scan.nextLine();
-            if (choice.equals("Play")){
-                game.play(character);
-            } else if (choice.equals("Quit game")){
-                System.exit(0);
-            } else {
-                System.out.println("wrong Choice : \"Play\" \"Quit game\"");
+        while(isPlaying) {
+            choice = 0;
+            while (choice!=2 && choice!=1) {
+                System.out.println("Choice > 1: Play  2: Quit game");
+                choice = scan.nextInt();
+                if (choice==1){
+                    game.play(character);
+                } else if (choice==2){
+                    System.exit(0);
+                }
             }
         }
-
         scan.close();
     }
 
     public void createCharacter(Scanner scan) {
+        int type = 0;
+        while (type!=2 && type!=1) {
+            System.out.println("Enter character type > 1: warrior  2: wizard");
+            type = scan.nextInt();
+            scan.nextLine();
+        }
 
-        System.out.println("Enter character type : warrior or wizard");
-        String type = scan.nextLine();
         System.out.println("Enter character name");
         String name = scan.nextLine();
         character = new Character(type, name);
-
 
         character.printAttributes();
     }
