@@ -17,6 +17,7 @@ public class OffensiveEquipment {
         }
     }
 
+
     public String getType() {
         return type;
     }

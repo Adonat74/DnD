@@ -1,10 +1,15 @@
 package menu;
 import java.util.Scanner;
+import character.Character;
+import game.Game;
 
 
 public class Menu {
-    public static void play() {
+    private Character character;
+
+    public void menuChoice() throws InterruptedException {
         Scanner scan = new Scanner(System.in);
+        Game game = new Game();
 
 
         System.out.println("Choice : \"Character creation\" \"Quit game\"");
@@ -14,11 +19,7 @@ public class Menu {
         while (!choice.equals("Quit game") && !choice.equals("Character creation")) {
             choice = scan.nextLine();
             if (choice.equals("Character creation")){
-                System.out.println("Enter character type : warrior or wizard");
-                String type = scan.nextLine();
-                System.out.println("Enter character name");
-                String name = scan.nextLine();
-                System.out.println(type + name);
+                createCharacter(scan);
             } else if (choice.equals("Quit game")){
                 System.exit(0);
             } else {
@@ -26,12 +27,30 @@ public class Menu {
             }
         }
 
-
-
-
-
+        System.out.println("Choice : \"Play\" \"Quit game\"");
+        while (!choice.equals("Quit game") && !choice.equals("Play")) {
+            choice = scan.nextLine();
+            if (choice.equals("Play")){
+                game.play(character);
+            } else if (choice.equals("Quit game")){
+                System.exit(0);
+            } else {
+                System.out.println("wrong Choice : \"Play\" \"Quit game\"");
+            }
+        }
 
         scan.close();
     }
 
+    public void createCharacter(Scanner scan) {
+
+        System.out.println("Enter character type : warrior or wizard");
+        String type = scan.nextLine();
+        System.out.println("Enter character name");
+        String name = scan.nextLine();
+        character = new Character(type, name);
+
+
+        character.printAttributes();
+    }
 }
