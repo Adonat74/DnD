@@ -1,3 +1,5 @@
+package character;
+
 public class Character {
     String type;
     String name;
@@ -5,6 +7,14 @@ public class Character {
     int attack;
     String weapon;
     String defense;
+
+    public Character() {
+
+
+    }
+    public Character(String name) {
+        name = name;
+    }
 
     public Character(String type, String name) {
         type = type.toLowerCase();
