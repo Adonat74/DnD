@@ -1,6 +1,9 @@
 package menu;
 import java.util.Scanner;
 import character.Character;
+import character.types.Warrior;
+import character.types.Wizard;
+import exception.CharacterOutOfBoardException;
 import game.Game;
 
 
@@ -8,8 +11,8 @@ public class Menu {
     private Character character;
     private int choice = 0;
 
-    public Menu() {
-    }
+//    public Menu() {
+//    }
 
 
     public void menuChoice() throws InterruptedException {
@@ -33,7 +36,11 @@ public class Menu {
                 System.out.println("Choice > 1: Play  2: Quit game");
                 choice = scan.nextInt();
                 if (choice==1){
-                    game.play(character);// lance le jeu avec la fonction play
+                    try{
+                        game.play(character);// lance le jeu avec la fonction play
+                    } catch (CharacterOutOfBoardException e) {
+//                        throw new RuntimeException(e);
+                    }
                 } else if (choice==2){
                     System.exit(0);
                 }
@@ -49,12 +56,17 @@ public class Menu {
             type = scan.nextInt();
             scan.nextLine();
         }
-//    then enter a name
+        // then enter a name
         System.out.println("Enter character name");
         String name = scan.nextLine();
-//        instenciate a character class
-        character = new Character(type, name);
 
-        character.printAttributes();
+        // instenciate a warrior or wizard class
+        if (type==1){
+            character = new Warrior(name);
+        } else if (type==2){
+            character = new Wizard(name);
+        }
+
+        System.out.println(character.toString());
     }
 }

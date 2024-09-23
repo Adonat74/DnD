@@ -1,20 +1,13 @@
 package character.equipment;
 
 public class OffensiveEquipment {
-    private String type;
-    private int attackLevel;
-    private String name;
+    protected String type;
+    protected int attackLevel;
+    protected String name;
 
 
-
-    public OffensiveEquipment(String type, String name) {
-        this.type = type;
+    public OffensiveEquipment(String name) {
         this.name = name;
-        if (type.equals("weapon")){
-            this.attackLevel = 10;
-        } else if (type.equals("spell")){
-            this.attackLevel = 15;
-        }
     }
 
 //  GETTERS

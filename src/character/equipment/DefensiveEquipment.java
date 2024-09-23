@@ -1,18 +1,12 @@
 package character.equipment;
 
 public class DefensiveEquipment {
-    String type;
-    int defenseLevel;
-    String name;
+    protected String type;
+    protected int defenseLevel;
+    protected String name;
 
-    public DefensiveEquipment(String type, String name) {
-        this.type = type;
+    public DefensiveEquipment(String name) {
         this.name = name;
-        if (type.equals("shield")){
-            this.defenseLevel = 10;
-        } else if (type.equals("filter")){
-            this.defenseLevel = 15;
-        }
     }
 //   GETTERS
     public String getType() {

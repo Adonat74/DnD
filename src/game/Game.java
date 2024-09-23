@@ -1,6 +1,7 @@
 package game;
 
 import character.Character;
+import exception.CharacterOutOfBoardException;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +19,7 @@ public class Game {
         this.table[0] = 1;
     }
 
-    public void play(Character character) throws InterruptedException {
+    public void play(Character character) throws InterruptedException, CharacterOutOfBoardException {
 //        reset the player pos and the turn number each new game
         this.firstCharacter = 1;
         this.turn = 1;
@@ -32,12 +33,13 @@ public class Game {
             diceRoll = new DiceRoll().getDice();
             firstCharacter+=diceRoll;
             turn++;
-            TimeUnit.SECONDS.sleep(1);
-//            if player is on sqaure 64 or more after a dice roll place the player on the 64th square.
+            TimeUnit.MILLISECONDS.sleep(300);
+//            if player is on square 64 or more after a die roll place the player on the 64th square.
             if(firstCharacter >=64) {
                 firstCharacter = 64;
                 System.out.println("turn number : " + turn);
                 System.out.println(character.getName() + " is on square nb" + firstCharacter);
+                throw new CharacterOutOfBoardException();
             }
 
         } while (firstCharacter<64);
