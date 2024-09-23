@@ -5,6 +5,7 @@ public class DiceRoll {
     public DiceRoll() {
         this.dice = (int)(Math.random() * 6)+1;
     }
+//     GETTERS
     public int getDice() {
         return dice;
     }

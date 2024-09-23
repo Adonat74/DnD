@@ -1,4 +1,4 @@
-package character.offensiveEquipment;
+package character.equipment;
 
 public class OffensiveEquipment {
     private String type;
@@ -17,7 +17,7 @@ public class OffensiveEquipment {
         }
     }
 
-
+//  GETTERS
     public String getType() {
         return type;
     }

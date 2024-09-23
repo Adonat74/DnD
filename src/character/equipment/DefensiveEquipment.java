@@ -1,4 +1,4 @@
-package character.defensiveEquipment;
+package character.equipment;
 
 public class DefensiveEquipment {
     String type;
@@ -14,7 +14,7 @@ public class DefensiveEquipment {
             this.defenseLevel = 15;
         }
     }
-
+//   GETTERS
     public String getType() {
         return type;
     }
