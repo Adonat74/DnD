@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d919e39e-2572-4c00-805e-6a82ccb2d651" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/game/dieRoll/DieRoll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/equipment/DefensiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/equipment/DefensiveEquipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/equipment/OffensiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/equipment/OffensiveEquipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/equipment/defensive/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/equipment/defensive/Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/equipment/defensive/Shield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/equipment/defensive/Shield.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/equipment/offensive/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/equipment/offensive/Spell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/equipment/offensive/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/equipment/offensive/Weapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/character/types/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/types/Warrior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/types/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/types/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/character/types/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/types/Mage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/DiceRoll.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
     </list>
@@ -81,7 +76,8 @@
       <option name="presentableId" value="Default" />
       <updated>1726816731737</updated>
       <workItem from="1726816732765" duration="22418000" />
-      <workItem from="1727074835658" duration="16634000" />
+      <workItem from="1727074835658" duration="22500000" />
+      <workItem from="1727248558253" duration="4761000" />
     </task>
     <servers />
   </component>

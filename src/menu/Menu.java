@@ -2,7 +2,7 @@ package menu;
 import java.util.Scanner;
 import character.Character;
 import character.types.Warrior;
-import character.types.Wizard;
+import character.types.Mage;
 import exception.CharacterOutOfBoardException;
 import game.Game;
 
@@ -64,7 +64,7 @@ public class Menu {
         if (type==1){
             character = new Warrior(name);
         } else if (type==2){
-            character = new Wizard(name);
+            character = new Mage(name);
         }
 
         System.out.println(character.toString());

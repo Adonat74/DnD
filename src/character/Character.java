@@ -4,6 +4,7 @@ import character.equipment.DefensiveEquipment;
 import character.equipment.OffensiveEquipment;
 
 public class Character {
+    protected String type;
     protected String name;
     protected int life;
     protected int attack;
@@ -22,7 +23,7 @@ public class Character {
 // print character attributes
     @Override
     public String toString() {
-        return "NAME: "+ name+"\n"+"LIFE: " + life+"\n" + "Attack force: " + attack + "\n" + "Weapon type: " + offensiveEquipment.getType() + ", Weapon name: " + offensiveEquipment.getName() + ", Weapon attack level: " + offensiveEquipment.getAttackLevel() + "\n" + "Defense type: " + defensiveEquipment.getType() + ", Defense name: " + defensiveEquipment.getName() + ", Defense level: " + defensiveEquipment.getDefenseLevel();
+        return "TYPE: " + type + "\n" + "NAME: "+ name+"\n"+"LIFE: " + life+"\n" + "Attack force: " + attack + "\n" + "Weapon type: " + offensiveEquipment.getType() + ", Weapon name: " + offensiveEquipment.getName() + ", Weapon attack level: " + offensiveEquipment.getAttackLevel() + "\n" + "Defense type: " + defensiveEquipment.getType() + ", Defense name: " + defensiveEquipment.getName() + ", Defense level: " + defensiveEquipment.getDefenseLevel();
     }
 
     //    SETTERS

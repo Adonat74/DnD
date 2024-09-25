@@ -8,6 +8,7 @@ public class Warrior extends Character {
 
     public Warrior(String name) {
         super(name);
+        this.type = "warrior";
         this.life = 10;
         this.attack = 10;
         this.offensiveEquipment = new Weapon("sword");
@@ -15,8 +16,4 @@ public class Warrior extends Character {
 
     }
 
-    @Override
-    public String toString() {
-        return  "TYPE: warrior" + "\n" + super.toString();
-    }
 }
