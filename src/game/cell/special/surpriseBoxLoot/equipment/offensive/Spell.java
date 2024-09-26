@@ -1,6 +1,6 @@
-package character.equipment.offensive;
+package game.cell.special.surpriseBoxLoot.equipment.offensive;
 
-import character.equipment.OffensiveEquipment;
+import game.cell.special.surpriseBoxLoot.equipment.OffensiveEquipment;
 
 public class Spell extends OffensiveEquipment {
     public Spell(String name) {

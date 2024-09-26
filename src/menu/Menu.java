@@ -18,30 +18,35 @@ public class Menu {
     public void menuChoice() throws InterruptedException {
         Scanner scan = new Scanner(System.in);
         Game game = new Game();
-
-//      start the game with a choice between quit or create character
-        while (choice!=2 && choice!=1) {
-            System.out.println("Choice > 1: Character creation 2: Quit game");
-            choice = scan.nextInt();
-            if (choice==1){
-                createCharacter(scan);
-            } else if (choice==2){
-                System.exit(0);
-            }
-        }
-//      Choose to play the game or to quit
         while(true) {
+
+            choice = 0;
+    //      start the game with a choice between quit or create character
+            while (choice!=2 && choice!=1) {
+                System.out.println("Choice > 1: Character creation 2: Quit game");
+                choice = scan.nextInt();
+                if (choice==1){
+                    createCharacter(scan);
+                } else if (choice==2){
+                    System.exit(0);
+                }
+            }
+    //      Choose to play the game or to quit
+
             choice = 0;
             while (choice!=2 && choice!=1) {
-                System.out.println("Choice > 1: Play  2: Quit game");
+                System.out.println("Choice > 1: Play  2: New character  3: Quit game");
                 choice = scan.nextInt();
                 if (choice==1){
                     try{
-                        game.play(character);// lance le jeu avec la fonction play
+                        game.testPlay(character);// lance le jeu avec la fonction play
                     } catch (CharacterOutOfBoardException e) {
-//                        throw new RuntimeException(e);
+                        throw new RuntimeException(e);
                     }
+                    choice = 0;
                 } else if (choice==2){
+
+                } else if (choice==3){
                     System.exit(0);
                 }
             }

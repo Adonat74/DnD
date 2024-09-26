@@ -1,12 +1,12 @@
 package character;
 
-import character.equipment.DefensiveEquipment;
-import character.equipment.OffensiveEquipment;
+import game.cell.special.surpriseBoxLoot.equipment.DefensiveEquipment;
+import game.cell.special.surpriseBoxLoot.equipment.OffensiveEquipment;
 
 public class Character {
     protected String type;
     protected String name;
-    protected int life;
+    protected int health;
     protected int attack;
     protected OffensiveEquipment offensiveEquipment;
     protected DefensiveEquipment defensiveEquipment;
@@ -17,27 +17,37 @@ public class Character {
     public Character(String name) {
         this.name = name;
     }
-
-
-
 // print character attributes
     @Override
     public String toString() {
-        return "TYPE: " + type + "\n" + "NAME: "+ name+"\n"+"LIFE: " + life+"\n" + "Attack force: " + attack + "\n" + "Weapon type: " + offensiveEquipment.getType() + ", Weapon name: " + offensiveEquipment.getName() + ", Weapon attack level: " + offensiveEquipment.getAttackLevel() + "\n" + "Defense type: " + defensiveEquipment.getType() + ", Defense name: " + defensiveEquipment.getName() + ", Defense level: " + defensiveEquipment.getDefenseLevel();
+        return "TYPE: " + type + "\n" + "NAME: "+ name+"\n"+"LIFE: " + health+"\n" + "Attack force: " + attack + "\n" + "Weapon type: " + offensiveEquipment.getOffensiveEquipmentType() + ", Weapon name: " + offensiveEquipment.getOffensiveEquipmentName() + ", Weapon attack level: " + offensiveEquipment.getOffensiveEquipmentAttackLevel() + "\n" + "Defense type: " + defensiveEquipment.getType() + ", Defense name: " + defensiveEquipment.getName() + ", Defense level: " + defensiveEquipment.getDefenseLevel();
     }
 
     //    SETTERS
     public void setName(String name) {
         this.name = name;
     }
+    public void setHealth(int health) {
+        this.health += health;
+    }
+    public void setAttack(int attack) {
+        this.attack += attack;
+    }
+    public void setDamage(int damage) {
+        this.health -= damage;
+    }
 //    GETTERS
     public String getName() {
         return this.name;
     }
-    public int getLife() {
-        return this.life;
+    public int getHealth() {
+        return this.health;
     }
     public int getAttack() {
         return this.attack;
+    }
+
+    public String getType() {
+        return type;
     }
 }

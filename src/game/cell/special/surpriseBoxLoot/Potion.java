@@ -1,6 +1,19 @@
 package game.cell.special.surpriseBoxLoot;
 
-import game.cell.special.SurpriseBox;
+import game.cell.Cell;
 
-public class Potion extends SurpriseBox {
+public class Potion implements Cell {
+    private final int healthBonus;
+
+    public Potion() {
+        int rand = (int)(Math.random() * 2);
+        if (rand == 0) {
+            healthBonus = 2;
+        } else {
+            healthBonus = 5;
+        }
+    }
+    public int getHealthBonus() {
+        return healthBonus;
+    }
 }

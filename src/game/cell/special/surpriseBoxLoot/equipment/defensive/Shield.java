@@ -1,6 +1,6 @@
-package character.equipment.defensive;
+package game.cell.special.surpriseBoxLoot.equipment.defensive;
 
-import character.equipment.DefensiveEquipment;
+import game.cell.special.surpriseBoxLoot.equipment.DefensiveEquipment;
 
 public class Shield extends DefensiveEquipment {
     public Shield(String name) {

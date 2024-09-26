@@ -1,4 +1,4 @@
-package character.equipment;
+package game.cell.special.surpriseBoxLoot.equipment;
 
 public class DefensiveEquipment {
     protected String type;
