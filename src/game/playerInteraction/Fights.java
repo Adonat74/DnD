@@ -1,20 +1,26 @@
 package game.playerInteraction;
 
 import character.Character;
+import db.DB;
 import game.cell.Cell;
 import game.cell.special.Enemy;
 import game.cell.special.enemies.Dragon;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class Fights {
+
+    public Fights() throws SQLException {
+    }
+
     private void pause() throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(1000);
     }
 
 
-    public void fight(Character character,int firstCharacter, int characterAttack, int characterHealth, ArrayList<Cell> cellsTable) throws InterruptedException {
+    public void fight(Character character,int firstCharacter, int characterAttack, int characterHealth, ArrayList<Cell> cellsTable, DB db) throws InterruptedException, SQLException {
         Enemy enemy = (Enemy) cellsTable.get(firstCharacter); // Cast en type Enemy
         System.out.println("Enemy detected ...");
         pause();
@@ -42,6 +48,8 @@ public class Fights {
             System.out.println("Your health: " + characterHealth + " - " + enemy.getEnemyAttack() + " > " + character.getHealth());
             pause();
             System.out.println("Enemy run away !");
+
+            db.changeHealthPoints(character);
         }
     }
 }

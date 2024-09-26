@@ -7,7 +7,7 @@ import game.cell.special.surpriseBoxLoot.equipment.offensive.Spell;
 public class Mage extends Character {
     public Mage(String name) {
         super(name);
-        this.type = "wizard";
+        this.type = "mage";
         this.health = 6;
         this.attack = 15;
         this.offensiveEquipment = new Spell("fire ball");

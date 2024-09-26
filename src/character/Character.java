@@ -50,4 +50,8 @@ public class Character {
     public String getType() {
         return type;
     }
+
+    public String getOffensiveEquipment() {
+        return offensiveEquipment.getOffensiveEquipmentName();
+    }
 }

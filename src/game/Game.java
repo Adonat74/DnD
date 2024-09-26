@@ -3,6 +3,7 @@ package game;
 import character.Character;
 import character.types.Mage;
 import character.types.Warrior;
+import db.DB;
 import game.cell.special.EmptyCell;
 import game.cell.special.Enemy;
 import game.cell.special.surpriseBoxLoot.equipment.offensive.Weapon;
@@ -13,6 +14,7 @@ import game.cell.special.surpriseBoxLoot.Potion;
 import game.dieRoll.DieRoll;
 import game.playerInteraction.Fights;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -23,10 +25,14 @@ public class Game {
     private final ArrayList<Cell> cellsTable;
     private int turn;
 
-    public Game() {
+    public Game() throws SQLException {
         this.firstCharacter = 0;
         this.turn = 1;
         this.cellsTable = new ArrayList<Cell>();
+        resetBoard();
+    }
+
+    private void resetBoard() {
         this.cellsTable.add(0, new EmptyCell());
         this.cellsTable.add(1, new Dragon());
         this.cellsTable.add(2, new Weapon("sword"));
@@ -42,7 +48,7 @@ public class Game {
         TimeUnit.MILLISECONDS.sleep(1000);
     }
 
-    public void testPlayTurn (Character character) throws InterruptedException {
+    public void testPlayTurn (Character character, DB db) throws InterruptedException, SQLException {
 
         this.firstCharacter++; // piped die
 
@@ -53,7 +59,7 @@ public class Game {
         // gère les cases comprenant un ennemi
 
             Fights fight = new Fights();
-            fight.fight(character, firstCharacter, characterAttack, characterHealth,  cellsTable);
+            fight.fight(character, firstCharacter, characterAttack, characterHealth,  cellsTable, db);
 
         } else if (cellsTable.get(firstCharacter) instanceof Potion) {
         // gère les cases comprenant une potion
@@ -61,6 +67,7 @@ public class Game {
             character.setHealth(bonusHealth);
             System.out.println("potion");
             System.out.println("your health increases : " + characterHealth + " > " + character.getHealth());
+            db.changeHealthPoints(character);
 
 
         } else if (cellsTable.get(firstCharacter) instanceof EmptyCell) {
@@ -74,13 +81,14 @@ public class Game {
         }
     }
 
-    public void testPlay(Character character) throws InterruptedException, CharacterOutOfBoardException {
+    public void testPlay(Character character, DB db) throws InterruptedException, CharacterOutOfBoardException, SQLException {
 //        permet de remmettre à 0 les stats du joueur lors d'une nouvelle partie
         if (character.getType().equals("warrior")) {
             character = new Warrior(character.getName());
         } else {
             character = new Mage(character.getName());
         }
+        resetBoard();
 
         Scanner scan = new Scanner(System.in);
 //        reset the player pos and the turn number each new game
@@ -93,7 +101,7 @@ public class Game {
         while(firstCharacter<3){
             System.out.println("press enter to throw die");
             scan.nextLine();
-            testPlayTurn(character);
+            testPlayTurn(character, db);
 
             turn++;
             System.out.println("turn number : " + turn);
