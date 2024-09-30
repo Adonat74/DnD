@@ -10,7 +10,7 @@ public class Mage extends PlayerCharacter {
         this.type = "mage";
         this.health = 6;
         this.attack = 15;
-        this.offensiveEquipment = new Spell("fire ball");
+        this.offensiveEquipment = new Spell();
         this.defensiveEquipment = new Filter("filter");
     }
 

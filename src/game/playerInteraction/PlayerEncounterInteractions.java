@@ -18,7 +18,6 @@ public class PlayerEncounterInteractions {
         this.game = game;
     }
 
-
     public void manageInteractions(Board board, int firstCharacter, PlayerCharacter playerCharacter, DB db) throws SQLException, InterruptedException {
 
         int characterAttack = playerCharacter.getAttack();
@@ -31,7 +30,9 @@ public class PlayerEncounterInteractions {
             Fights fight = new Fights(game);
             fight.fight(playerCharacter, characterAttack, characterHealth, board.getBoard(), db);
 
+
         } else if (board.getBoard().get(firstCharacter) instanceof Potion) {
+
 
             // gère les cases comprenant une potion
             int bonusHealth = new Potion().getHealthBonus();
@@ -47,7 +48,7 @@ public class PlayerEncounterInteractions {
         } else if (board.getBoard().get(firstCharacter) instanceof Weapon) {
 
             // gère les cases comprenant une arme
-            int bonusAttack = new Weapon("sword").getOffensiveEquipmentAttackLevel();
+            int bonusAttack = new Weapon().getOffensiveEquipmentAttackLevel();
             playerCharacter.setAttack(bonusAttack);
             System.out.println("weapon");
             System.out.println("your attack increases : " + characterAttack + " > " + playerCharacter.getAttack());

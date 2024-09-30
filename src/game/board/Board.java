@@ -19,7 +19,7 @@ public class Board {
         this.board = new ArrayList<>(4);
         this.board.add(0, new EmptyCell());
         this.board.add(1, new Dragon());
-        this.board.add(2, new Weapon("sword"));
+        this.board.add(2, new Weapon());
         this.board.add(3, new Potion());
     }
 

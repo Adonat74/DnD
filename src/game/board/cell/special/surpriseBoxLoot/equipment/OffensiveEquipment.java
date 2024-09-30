@@ -5,11 +5,9 @@ import game.board.cell.Cell;
 public abstract class OffensiveEquipment implements Cell {
     protected String type;
     protected int attackLevel;
-    protected String name;
 
 
-    public OffensiveEquipment(String name) {
-        this.name = name;
+    public OffensiveEquipment() {
     }
 
 //  GETTERS
@@ -18,9 +16,6 @@ public abstract class OffensiveEquipment implements Cell {
     }
     public int getOffensiveEquipmentAttackLevel() {
         return attackLevel;
-    }
-    public String getOffensiveEquipmentName() {
-        return name;
     }
 
 }
