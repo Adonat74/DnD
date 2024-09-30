@@ -33,7 +33,7 @@ public class PlayerCharacter {
     public void setAttack(int attack) {
         this.attack += attack;
     }
-    public void setDamage(int damage) {
+    public void setDamageTaken(int damage) {
         this.health -= damage;
     }
 //    GETTERS

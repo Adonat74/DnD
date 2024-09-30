@@ -18,9 +18,13 @@ public class Game {
     private int firstCharacter;
     private final Board board;
     private int turn;
-    private final PlayerEncounterInteractions playerEncounterInteractions = new PlayerEncounterInteractions();
+    private boolean gameOver = false;
+
+    private final PlayerEncounterInteractions playerEncounterInteractions;
+
 
     public Game() throws SQLException {
+        playerEncounterInteractions = new PlayerEncounterInteractions(this);
         this.firstCharacter = 0;
         this.turn = 1;
         board = new Board();
@@ -32,10 +36,6 @@ public class Game {
     }
 
     public void testPlayTurn (PlayerCharacter playerCharacter, DB db) throws InterruptedException, SQLException {
-
-
-        // piped die
-        firstCharacter++;
         playerEncounterInteractions.manageInteractions(board, firstCharacter, playerCharacter, db);
     }
 
@@ -54,23 +54,22 @@ public class Game {
         this.firstCharacter = 0;
         this.turn = 1;
 
-        System.out.println("turn number : " + turn);
-        System.out.println(playerCharacter.getName() + " is on square nb" + (firstCharacter));
-
-        playerEncounterInteractions.manageInteractions(board, firstCharacter, playerCharacter, db);
 
     //      while player not on 64th square continue
-        while(firstCharacter < board.getBoard().size()-1){
+        while(firstCharacter < board.getBoard().size() && !gameOver){
+
 
 
             System.out.println("turn number : " + turn);
-            System.out.println("press enter to throw die");
-            scan.nextLine();
-            testPlayTurn(playerCharacter, db);
-
-            turn++;
-
             System.out.println(playerCharacter.getName() + " is on square nb" + (firstCharacter));
+            testPlayTurn(playerCharacter, db);
+            if (!gameOver) {
+                System.out.println("press enter to throw die");
+                scan.nextLine();
+
+                firstCharacter++;
+                turn++;
+            }
     //            if (firstCharacter >64) {
     //                throw new CharacterOutOfBoardException();
     //            }
@@ -78,9 +77,40 @@ public class Game {
     }
 
 
+// GETTERS
+    public int getFirstCharacter() {
+        return firstCharacter;
+    }
+//SETTERS
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
+    }
+
+    public void setFirstCharacter(int firstCharacter) {
+        this.firstCharacter = firstCharacter;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
     public void play(PlayerCharacter playerCharacter) throws InterruptedException, CharacterOutOfBoardException {
     //        reset the player pos and the turn number each new game

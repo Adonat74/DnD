@@ -9,11 +9,11 @@ public class DB {
 
     Dotenv dotenv = Dotenv.load();
 
-    String dbHost = dotenv.get("DB_HOST");
+//    String dbHost = dotenv.get("DB_HOST");
     String dbUser = dotenv.get("DB_USER");
     String dbPassword = dotenv.get("DB_PASSWORD");
     String dbName = dotenv.get("DB_NAME");
-    String dbPort = dotenv.get("DB_PORT");
+//    String dbPort = dotenv.get("DB_PORT");
 
     final String DB_URL = "jdbc:mysql://localhost:3306/" + dbName;
     final String USER = dbUser;
@@ -66,7 +66,7 @@ public class DB {
 
     }
     public void changeHealthPoints (PlayerCharacter playerCharacter) throws SQLException {
-        String sql = "UPDATE hero SET health = ? WHERE name =? ";
+        String sql = "UPDATE hero SET health = ? WHERE name = ? ";
         pstmt = conn.prepareStatement(sql);
         pstmt.setInt(1, playerCharacter.getHealth());
         pstmt.setString(2, playerCharacter.getName());
