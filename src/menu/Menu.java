@@ -2,7 +2,7 @@ package menu;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
-import character.Character;
+import character.PlayerCharacter;
 import character.types.Warrior;
 import character.types.Mage;
 import exception.CharacterOutOfBoardException;
@@ -11,16 +11,12 @@ import db.DB;
 
 
 public class Menu {
-    private Character character;
+    private PlayerCharacter playerCharacter;
     private int choice = 0;
     DB db = new DB();
 
     public Menu() throws SQLException {
-
     }
-
-//    public Menu() {
-//    }
 
 
     public void menuChoice() throws InterruptedException, SQLException {
@@ -52,7 +48,7 @@ public class Menu {
                 choice = scan.nextInt();
                 if (choice==1){
                     try{
-                        game.testPlay(character, db);// lance le jeu avec la fonction play
+                        game.testPlay(playerCharacter, db);// lance le jeu avec la fonction play
                     } catch (CharacterOutOfBoardException e) {
                         throw new RuntimeException(e);
                     }
@@ -73,9 +69,9 @@ public class Menu {
             ResultSet rs = db.getOneHero(id[0]);
             while (rs.next()) {
                 if (rs.getString("type").equals("warrior")) {
-                    character = new Warrior(rs.getString("name"));
+                    playerCharacter = new Warrior(rs.getString("name"));
                 } else if(rs.getString("type").equals("mage")) {
-                    character = new Mage(rs.getString("name"));
+                    playerCharacter = new Mage(rs.getString("name"));
                 }
             }
         } else {
@@ -91,14 +87,14 @@ public class Menu {
             String name = scan.nextLine();
             // instenciate a warrior or wizard class
             if (type==1){
-                character = new Warrior(name);
-                db.createHero(character);
+                playerCharacter = new Warrior(name);
+                db.createHero(playerCharacter);
             } else if (type==2){
-                character = new Mage(name);
-                db.createHero(character);
+                playerCharacter = new Mage(name);
+                db.createHero(playerCharacter);
             }
         }
 
-        System.out.println(character.toString());
+        System.out.println(playerCharacter.toString());
     }
 }

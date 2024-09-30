@@ -1,6 +1,6 @@
 package game.playerInteraction;
 
-import character.Character;
+import character.PlayerCharacter;
 import db.DB;
 import game.board.cell.Cell;
 import game.board.cell.special.Enemy;
@@ -20,7 +20,7 @@ public class Fights {
     }
 
 
-    public void fight(Character character,int firstCharacter, int characterAttack, int characterHealth, ArrayList<Cell> cellsTable, DB db) throws InterruptedException, SQLException {
+    public void fight(PlayerCharacter playerCharacter, int firstCharacter, int characterAttack, int characterHealth, ArrayList<Cell> cellsTable, DB db) throws InterruptedException, SQLException {
 
         Enemy enemy = (Enemy) cellsTable.get(firstCharacter); // Cast en type Enemy
         System.out.println("Enemy detected ...");
@@ -45,12 +45,12 @@ public class Fights {
         } else {
             System.out.println("Enemy strike !");
 //            pause();
-            character.setDamage(enemy.getEnemyAttack());
-            System.out.println("Your health: " + characterHealth + " - " + enemy.getEnemyAttack() + " > " + character.getHealth());
+            playerCharacter.setDamage(enemy.getEnemyAttack());
+            System.out.println("Your health: " + characterHealth + " - " + enemy.getEnemyAttack() + " > " + playerCharacter.getHealth());
 //            pause();
             System.out.println("Enemy run away !");
 
-            db.changeHealthPoints(character);
+            db.changeHealthPoints(playerCharacter);
         }
     }
 }

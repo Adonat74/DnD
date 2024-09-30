@@ -3,7 +3,7 @@ package character;
 import game.board.cell.special.surpriseBoxLoot.equipment.DefensiveEquipment;
 import game.board.cell.special.surpriseBoxLoot.equipment.OffensiveEquipment;
 
-public class Character {
+public class PlayerCharacter {
     protected String type;
     protected String name;
     protected int health;
@@ -11,10 +11,10 @@ public class Character {
     protected OffensiveEquipment offensiveEquipment;
     protected DefensiveEquipment defensiveEquipment;
 
-    public Character() {
+    public PlayerCharacter() {
     }
 //    constructeur appelé dans les classes enfant warrior et wizard
-    public Character(String name) {
+    public PlayerCharacter(String name) {
         this.name = name;
     }
 // print character attributes

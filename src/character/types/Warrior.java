@@ -1,10 +1,10 @@
 package character.types;
 
-import character.Character;
+import character.PlayerCharacter;
 import game.board.cell.special.surpriseBoxLoot.equipment.defensive.Shield;
 import game.board.cell.special.surpriseBoxLoot.equipment.offensive.Weapon;
 
-public class Warrior extends Character {
+public class Warrior extends PlayerCharacter {
 
     public Warrior(String name) {
         super(name);
