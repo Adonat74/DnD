@@ -1,7 +1,7 @@
 package character;
 
-import game.cell.special.surpriseBoxLoot.equipment.DefensiveEquipment;
-import game.cell.special.surpriseBoxLoot.equipment.OffensiveEquipment;
+import game.board.cell.special.surpriseBoxLoot.equipment.DefensiveEquipment;
+import game.board.cell.special.surpriseBoxLoot.equipment.OffensiveEquipment;
 
 public class Character {
     protected String type;

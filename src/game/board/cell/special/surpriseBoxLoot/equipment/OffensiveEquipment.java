@@ -1,6 +1,6 @@
-package game.cell.special.surpriseBoxLoot.equipment;
+package game.board.cell.special.surpriseBoxLoot.equipment;
 
-import game.cell.Cell;
+import game.board.cell.Cell;
 
 public abstract class OffensiveEquipment implements Cell {
     protected String type;

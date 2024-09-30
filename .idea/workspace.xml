@@ -6,13 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="d919e39e-2572-4c00-805e-6a82ccb2d651" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/character/types/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/types/Mage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/character/types/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/types/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/EmptyCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/EmptyCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/SurpriseBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/SurpriseBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/enemies/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/enemies/Dragon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/enemies/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/enemies/Goblin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/enemies/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/enemies/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/surpriseBoxLoot/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/Potion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/surpriseBoxLoot/equipment/DefensiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/DefensiveEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/surpriseBoxLoot/equipment/OffensiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/OffensiveEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/surpriseBoxLoot/equipment/defensive/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/defensive/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/surpriseBoxLoot/equipment/defensive/Shield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/defensive/Shield.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/surpriseBoxLoot/equipment/offensive/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/offensive/Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/cell/special/surpriseBoxLoot/equipment/offensive/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/offensive/Weapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/playerInteraction/Fights.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/playerInteraction/Fights.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -46,7 +59,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Run",
+    "Application.Main.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
@@ -68,6 +81,20 @@
     ]
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="DnD" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -87,7 +114,10 @@
       <workItem from="1726816732765" duration="22418000" />
       <workItem from="1727074835658" duration="22500000" />
       <workItem from="1727248558253" duration="19981000" />
-      <workItem from="1727331869057" duration="22261000" />
+      <workItem from="1727331869057" duration="23175000" />
+      <workItem from="1727419041178" duration="1968000" />
+      <workItem from="1727436810508" duration="10922000" />
+      <workItem from="1727679723203" duration="4461000" />
     </task>
     <servers />
   </component>
@@ -104,5 +134,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/menu/Menu.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -2,9 +2,9 @@ package game.playerInteraction;
 
 import character.Character;
 import db.DB;
-import game.cell.Cell;
-import game.cell.special.Enemy;
-import game.cell.special.enemies.Dragon;
+import game.board.cell.Cell;
+import game.board.cell.special.Enemy;
+import game.board.cell.special.enemies.Dragon;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,32 +21,33 @@ public class Fights {
 
 
     public void fight(Character character,int firstCharacter, int characterAttack, int characterHealth, ArrayList<Cell> cellsTable, DB db) throws InterruptedException, SQLException {
+
         Enemy enemy = (Enemy) cellsTable.get(firstCharacter); // Cast en type Enemy
         System.out.println("Enemy detected ...");
-        pause();
+//        pause();
         if (enemy instanceof Dragon) {
             Dragon dragon = (Dragon) enemy;
             System.out.println("It's a dragon !");
-            pause();
+//            pause();
         }
 
         System.out.println("Your health: " + characterHealth + "  Enemy health: " + enemy.getEnemyHealth()+"\n"+ "Your attack: " + characterAttack + "  Enemy attack: " + enemy.getEnemyAttack());
 
-        pause();
+//        pause();
         System.out.println("You strike !");
         int enemyHealth = enemy.getEnemyHealth();
         enemy.setHealth(characterAttack);
-        pause();
+//        pause();
         System.out.println("Enemy health: " + enemyHealth + " - " + characterAttack + " > " + enemy.getEnemyHealth());
-        pause();
+//        pause();
         if (enemy.getEnemyHealth()<= 0) {
             System.out.println("You killed the enemy !");
         } else {
             System.out.println("Enemy strike !");
-            pause();
+//            pause();
             character.setDamage(enemy.getEnemyAttack());
             System.out.println("Your health: " + characterHealth + " - " + enemy.getEnemyAttack() + " > " + character.getHealth());
-            pause();
+//            pause();
             System.out.println("Enemy run away !");
 
             db.changeHealthPoints(character);

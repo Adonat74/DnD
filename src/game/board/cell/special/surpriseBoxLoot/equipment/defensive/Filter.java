@@ -1,6 +1,6 @@
-package game.cell.special.surpriseBoxLoot.equipment.defensive;
+package game.board.cell.special.surpriseBoxLoot.equipment.defensive;
 
-import game.cell.special.surpriseBoxLoot.equipment.DefensiveEquipment;
+import game.board.cell.special.surpriseBoxLoot.equipment.DefensiveEquipment;
 
 public class Filter extends DefensiveEquipment {
     public Filter(String name) {

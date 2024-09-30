@@ -1,6 +1,6 @@
-package game.cell.special.enemies;
+package game.board.cell.special.enemies;
 
-import game.cell.special.Enemy;
+import game.board.cell.special.Enemy;
 
 public class Goblin extends Enemy {
     public Goblin() {

@@ -1,8 +1,8 @@
 package character.types;
 
 import character.Character;
-import game.cell.special.surpriseBoxLoot.equipment.defensive.Shield;
-import game.cell.special.surpriseBoxLoot.equipment.offensive.Weapon;
+import game.board.cell.special.surpriseBoxLoot.equipment.defensive.Shield;
+import game.board.cell.special.surpriseBoxLoot.equipment.offensive.Weapon;
 
 public class Warrior extends Character {
 

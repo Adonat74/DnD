@@ -1,8 +1,8 @@
 package character.types;
 
 import character.Character;
-import game.cell.special.surpriseBoxLoot.equipment.defensive.Filter;
-import game.cell.special.surpriseBoxLoot.equipment.offensive.Spell;
+import game.board.cell.special.surpriseBoxLoot.equipment.defensive.Filter;
+import game.board.cell.special.surpriseBoxLoot.equipment.offensive.Spell;
 
 public class Mage extends Character {
     public Mage(String name) {

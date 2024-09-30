@@ -1,12 +1,9 @@
-package game.cell.special;
+package game.board.cell.special;
 
-import game.cell.Cell;
-import game.cell.special.surpriseBoxLoot.Potion;
-import game.cell.special.surpriseBoxLoot.equipment.OffensiveEquipment;
-import game.cell.special.surpriseBoxLoot.equipment.offensive.Spell;
-import game.cell.special.surpriseBoxLoot.equipment.offensive.Weapon;
-
-import java.util.Random;
+import game.board.cell.Cell;
+import game.board.cell.special.surpriseBoxLoot.Potion;
+import game.board.cell.special.surpriseBoxLoot.equipment.offensive.Spell;
+import game.board.cell.special.surpriseBoxLoot.equipment.offensive.Weapon;
 
 public class SurpriseBox implements Cell {
     private Cell loot;

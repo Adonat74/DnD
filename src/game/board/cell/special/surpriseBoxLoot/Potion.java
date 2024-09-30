@@ -1,6 +1,6 @@
-package game.cell.special.surpriseBoxLoot;
+package game.board.cell.special.surpriseBoxLoot;
 
-import game.cell.Cell;
+import game.board.cell.Cell;
 
 public class Potion implements Cell {
     private final int healthBonus;
