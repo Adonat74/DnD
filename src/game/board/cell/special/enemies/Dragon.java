@@ -7,5 +7,6 @@ public class Dragon extends Enemy {
         this.health = 15;
         this.attack = 6;
         this.type = "Dragon";
+        this.emoji = Character.toString(0x1F409);
     }
 }

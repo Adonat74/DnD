@@ -20,7 +20,7 @@ public class PlayerCharacter {
 // print character attributes
     @Override
     public String toString() {
-        return "TYPE: " + type + "\n" + "NAME: "+ name+"\n"+"LIFE: " + health+"\n" + "Attack force: " + attack + "\n" + "Weapon type: " + offensiveEquipment.getOffensiveEquipmentType() + ", Weapon name: " + offensiveEquipment.getOffensiveEquipmentName() + ", Weapon attack level: " + offensiveEquipment.getOffensiveEquipmentAttackLevel() + "\n" + "Defense type: " + defensiveEquipment.getType() + ", Defense name: " + defensiveEquipment.getName() + ", Defense level: " + defensiveEquipment.getDefenseLevel();
+        return "Type: " + type + "\n" + "Name: "+ name+"\n"+"Life: " + health+"\n" + "Attack force: " + attack + "\n" + "Weapon type: " + offensiveEquipment.getOffensiveEquipmentType() + ", Weapon attack level: " + offensiveEquipment.getOffensiveEquipmentAttackLevel() + "\n" + "Defense type: " + defensiveEquipment.getType() + ", Defense name: " + defensiveEquipment.getName() + ", Defense level: " + defensiveEquipment.getDefenseLevel();
     }
 
     //    SETTERS
@@ -52,6 +52,6 @@ public class PlayerCharacter {
     }
 
     public String getOffensiveEquipment() {
-        return offensiveEquipment.getOffensiveEquipmentName();
+        return offensiveEquipment.getOffensiveEquipmentType();
     }
 }

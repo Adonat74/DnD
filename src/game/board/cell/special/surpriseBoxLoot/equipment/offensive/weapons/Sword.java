@@ -7,5 +7,6 @@ public class Sword extends Weapon {
 
         this.type = "Sword";
         this.attackLevel = 5;
+        this.emoji = Character.toString(0x1F5E1);
     }
 }

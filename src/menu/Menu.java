@@ -15,6 +15,11 @@ public class Menu {
     private int choice = 0;
     DB db = new DB();
 
+    String warriorEmoji = Character.toString(0x1F6E1);
+    String mageEmoji = Character.toString(0x1F9D9);
+    String listEmoji = Character.toString(0x1F4DC);
+
+
     public Menu() throws SQLException {
     }
 
@@ -32,7 +37,7 @@ public class Menu {
                 if (choice==1){
                     createCharacter(scan);
                 } else if (choice==2){
-                    System.out.println("Choice of id > ");
+                    System.out.println("Choice of id > " + listEmoji);
                     db.getHeroes();
                     int id = scan.nextInt();
                     createCharacter(scan, id);
@@ -78,7 +83,7 @@ public class Menu {
             int type = 0;
 //        choose a type 1 for warrior and 2 for wizard
             while (type!=2 && type!=1) {
-                System.out.println("Enter character type > 1: warrior  2: mage");
+                System.out.println("Enter character type > 1: warrior" + warriorEmoji + "  2: mage" + mageEmoji);
                 type = scan.nextInt();
                 scan.nextLine();
             }

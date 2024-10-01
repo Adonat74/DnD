@@ -7,5 +7,7 @@ public class Goblin extends Enemy {
         this.health = 6;
         this.attack = 1;
         this.type = "Goblin";
+        this.emoji = Character.toString(0x1F47A);
+
     }
 }

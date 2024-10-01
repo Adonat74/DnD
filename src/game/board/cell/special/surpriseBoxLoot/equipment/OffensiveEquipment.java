@@ -5,6 +5,7 @@ import game.board.cell.Cell;
 public abstract class OffensiveEquipment implements Cell {
     protected String type;
     protected int attackLevel;
+    protected String emoji;
 
 
     public OffensiveEquipment() {
@@ -18,4 +19,7 @@ public abstract class OffensiveEquipment implements Cell {
         return attackLevel;
     }
 
+    public String getEmoji() {
+        return emoji;
+    }
 }

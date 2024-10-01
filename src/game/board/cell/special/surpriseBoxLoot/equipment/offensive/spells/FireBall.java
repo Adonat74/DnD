@@ -7,5 +7,7 @@ public class FireBall extends Spell {
 
         this.type = "FireBall";
         this.attackLevel = 7;
+        this.emoji = Character.toString(0x1F525);
+
     }
 }

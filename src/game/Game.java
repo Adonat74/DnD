@@ -19,6 +19,8 @@ public class Game {
     private final Board board;
     private int turn;
     private boolean gameOver = false;
+    String dieEmoji = Character.toString(0x1F3B2);
+
 
     private final PlayerEncounterInteractions playerEncounterInteractions;
 
@@ -64,7 +66,7 @@ public class Game {
             System.out.println(playerCharacter.getName() + " is on square nb" + (firstCharacter));
             testPlayTurn(playerCharacter, db);
             if (!gameOver) {
-                System.out.println("press enter to throw die");
+                System.out.println("press enter to throw die" + dieEmoji);
                 scan.nextLine();
 
                 firstCharacter++;

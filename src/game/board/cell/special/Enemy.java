@@ -6,6 +6,7 @@ public class Enemy implements Cell {
     protected int attack;
     protected int health;
     protected String type;
+    protected String emoji;
 
     public Enemy () {
 
@@ -27,6 +28,7 @@ public class Enemy implements Cell {
         return type;
     }
 
-
-
+    public String getEmoji() {
+        return emoji;
+    }
 }
