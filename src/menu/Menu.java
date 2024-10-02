@@ -6,6 +6,7 @@ import character.PlayerCharacter;
 import character.types.Warrior;
 import character.types.Mage;
 import exceptions.CharacterOutOfBoardException;
+import exceptions.CharacterSavedListEmptyException;
 import game.Game;
 import db.DB;
 import util.GetValidInputChoice;
@@ -41,15 +42,28 @@ public class Menu {
                 if (choice==1){
                     createCharacter(scan);
                 } else if (choice==2){
-                    if (db.getHeroes(false).next()) {
+
+                    try {
                         System.out.println("Choice of id > " + listEmoji);
-                        db.getHeroes(true);
+                        db.getHeroes();
                         int id = getValidInputChoice.getValidInt(scan);
                         createCharacter(scan, id);
-                    } else {
-                        System.out.println("No character saved please create a new one !");
-                        choice = 0;
+                    } catch (CharacterSavedListEmptyException e) {
+                        System.out.println(e.getMessage());
+
                     }
+
+//                    if (db.getHeroes(false).next()) {
+//                        System.out.println("Choice of id > " + listEmoji);
+//                        db.getHeroes(true);
+//                        int id = getValidInputChoice.getValidInt(scan);
+//                        createCharacter(scan, id);
+//                    } else {
+//                        System.out.println("No character saved please create a new one !");
+//                        choice = 0;
+//                    }
+
+
                 } else if (choice==3){
                     System.exit(0);
                 }

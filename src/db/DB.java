@@ -3,6 +3,7 @@ package db;
 import java.sql.*;
 
 import character.PlayerCharacter;
+import exceptions.CharacterSavedListEmptyException;
 import io.github.cdimascio.dotenv.Dotenv;
 
 public class DB {
@@ -34,13 +35,14 @@ public class DB {
         }
     }
 
-    public ResultSet getHeroes(boolean print) throws SQLException {
+    public ResultSet getHeroes() throws SQLException, CharacterSavedListEmptyException {
         String sql = "SELECT * FROM hero";
         ResultSet rs = stmt.executeQuery(sql);
-        if (print) {
-            while (rs.next()) {
-                System.out.print("ID: " + rs.getInt("id") + " NAME: " + rs.getString("name") + " TYPE: " + rs.getString("type") + "\n");
-            }
+        if (!rs.next()) {
+            throw new CharacterSavedListEmptyException();
+        }
+        while (rs.next()) {
+            System.out.print("ID: " + rs.getInt("id") + " NAME: " + rs.getString("name") + " TYPE: " + rs.getString("type") + "\n");
         }
         return rs;
     }
