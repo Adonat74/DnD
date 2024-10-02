@@ -5,6 +5,7 @@ public class Enemy {
     protected int health;
     protected String type;
     protected String emoji;
+    protected boolean isDead = false;
 
     public Enemy () {
 
@@ -15,7 +16,11 @@ public class Enemy {
         this.health -= damage;
     }
 
-//    GETTERS
+    public void setIsDead(boolean isDead) {
+        this.isDead = isDead;
+    }
+
+    //    GETTERS
     public int getEnemyAttack() {
         return attack;
     }
@@ -25,7 +30,9 @@ public class Enemy {
     public String getEnemyType() {
         return type;
     }
-
+    public boolean getIsDead() {
+        return isDead;
+    }
     public String getEmoji() {
         return emoji;
     }

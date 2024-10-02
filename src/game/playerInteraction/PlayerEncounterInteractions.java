@@ -21,17 +21,13 @@ import java.util.Objects;
 public class PlayerEncounterInteractions {
     private final Pause pause = new Pause();
 
-
     String upArrowEmoji = Character.toString(0x1F51D);
     String crossEmoji = Character.toString(0x274C);
 
-
-//    private final Board board;
     private final Game game;
 
     public PlayerEncounterInteractions(Game game) {
         this.game = game;
-//        this.board = game.getBoard();
     }
 
     public void manageInteractions(Board board, int firstCharacter, PlayerCharacter playerCharacter, DB db) throws SQLException, InterruptedException {
@@ -45,13 +41,17 @@ public class PlayerEncounterInteractions {
 
 //      Verify the type of the cell attribute entity
         if (cell.getEntity() instanceof Enemy) {
+            String enemyType = ((Enemy) cell.getEntity()).getEnemyType();
             // gère les cases comprenant un ennemi
-            if (cell.getEntity() instanceof Orc && Objects.equals(characterType, "mage") || cell.getEntity() instanceof Ghost && Objects.equals(characterType, "warrior")) {
-                System.out.println("You are a " + characterType + ", " + ((Enemy) cell.getEntity()).getEnemyType() + " fear you! ");
+
+            if (((Enemy) cell.getEntity()).getIsDead()){
+                System.out.println(enemyType + " is already dead");
+            } else if (cell.getEntity() instanceof Orc && Objects.equals(characterType, "mage") || cell.getEntity() instanceof Ghost && Objects.equals(characterType, "warrior")) {
+                System.out.println("You are a " + characterType + ", " + enemyType + " fear you! ");
                 pause.pause(500);
-                System.out.println(((Enemy) cell.getEntity()).getEnemyType() + " run away !");
+                System.out.println(enemyType + " run away !");
             } else {
-                Fights fight = new Fights(game);
+                Fights fight = new Fights(game, firstCharacter);
                 fight.fight(playerCharacter, characterAttack, characterHealth, db, cell);
             }
         } else if (cell.getEntity() instanceof Potion) {

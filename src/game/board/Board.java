@@ -2,6 +2,7 @@ package game.board;
 
 import game.board.cell.Cell;
 import game.board.cell.special.EmptyCell;
+import game.board.enemy.Enemy;
 import game.board.enemy.enemies.*;
 import game.board.surpriseBoxLoot.SurpriseBox;
 
@@ -67,5 +68,13 @@ public class Board {
 //    GETTERS
     public ArrayList<Cell> getBoard () {
         return this.board;
+    }
+
+//    SETTERS
+
+    public void setDeadEnemy(int pos) {
+//        trouve le bon enemy et toggle si il est mort
+        Cell<?> cell = this.board.get(pos);
+        ((Enemy) cell.getEntity()).setIsDead(true);
     }
 }

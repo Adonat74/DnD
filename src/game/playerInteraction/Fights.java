@@ -30,7 +30,7 @@ public class Fights {
     GetValidInputChoice getValidInputChoice = new GetValidInputChoice();
 
 
-    public Fights(Game game) throws SQLException, InterruptedException {
+    public Fights(Game game, int firstCharacter) throws SQLException, InterruptedException {
         this.game = game;
         this.board = game.getBoard();
     }
@@ -49,7 +49,7 @@ public class Fights {
         pause.pause(500);
 
         System.out.println("Your health: " + characterHealth + "  Enemy health: " + enemy.getEnemyHealth()+"\n"+ "Your attack: " + characterAttack + "  Enemy attack: " + enemy.getEnemyAttack());
-                pause.pause(500);
+        pause.pause(500);
 
 
         while(playerCharacter.getHealth() > 0 && enemy.getEnemyHealth() > 0){
@@ -64,10 +64,10 @@ public class Fights {
                 System.out.println("You strike !" + strikeEmoji);
                 int enemyHealth = enemy.getEnemyHealth();
                 enemy.setHealth(characterAttack);
-                        pause.pause(500);
+                pause.pause(500);
 
                 System.out.println("Enemy health: " + enemyHealth + " - " + characterAttack + " > " + enemy.getEnemyHealth() + healthEmoji);
-                        pause.pause(500);
+                pause.pause(500);
 
                 if (enemy.getEnemyHealth() <= 0) {
                     break;
@@ -76,26 +76,32 @@ public class Fights {
                 System.out.println("You run away !" + runEmoji);
                 int dieRoll = new DieRoll(6).getDie();
 
-                game.setFirstCharacter(game.getFirstCharacter()-dieRoll);
-                System.out.println("You go back " + dieRoll + " cells !" + backArrowEmoji);
+                if (game.getFirstCharacter() < dieRoll) {
+                    game.setFirstCharacter(0);
+                    System.out.println("You go back " + game.getFirstCharacter() + " cells !" + backArrowEmoji);
+                } else {
+                    game.setFirstCharacter(game.getFirstCharacter()-dieRoll);
+                    System.out.println("You go back " + dieRoll + " cells !" + backArrowEmoji);
+                }
+
                 System.out.println(playerCharacter.getName() + " is on square nb " + (game.getFirstCharacter()));
 
                 break;
             }
             System.out.println("Enemy strike !" + strikeEmoji);
-                    pause.pause(500);
+            pause.pause(500);
 
             playerCharacter.setDamageTaken(enemy.getEnemyAttack());
             System.out.println("Your health: " + characterHealth + " - " + enemy.getEnemyAttack() + " > " + playerCharacter.getHealth() + healthEmoji);
-                    pause.pause(500);
-
-
+            pause.pause(500);
             db.changeHealthPoints(playerCharacter);
         }
 
 
         if (enemy.getEnemyHealth()<= 0) {
             System.out.println("You killed the enemy !" + deathEmoji);
+//            Appel la fonction qui toggle si un enemy est mort dans le tableau
+            board.setDeadEnemy(game.getFirstCharacter());
         } else if (playerCharacter.getHealth() <= 0) {
             System.out.println("Enemy killed you !" + deathEmoji + deathEmoji + deathEmoji);
             game.setGameOver(true);
