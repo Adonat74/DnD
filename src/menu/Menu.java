@@ -37,10 +37,15 @@ public class Menu {
                 if (choice==1){
                     createCharacter(scan);
                 } else if (choice==2){
-                    System.out.println("Choice of id > " + listEmoji);
-                    db.getHeroes();
-                    int id = scan.nextInt();
-                    createCharacter(scan, id);
+                    if (db.getHeroes(false).next()) {
+                        System.out.println("Choice of id > " + listEmoji);
+                        db.getHeroes(true);
+                        int id = scan.nextInt();
+                        createCharacter(scan, id);
+                    } else {
+                        System.out.println("No character saved please create a new one !");
+                        choice = 0;
+                    }
                 } else if (choice==3){
                     System.exit(0);
                 }
@@ -90,7 +95,7 @@ public class Menu {
             // then enter a name
             System.out.println("Enter character name");
             String name = scan.nextLine();
-            // instenciate a warrior or wizard class
+            // instantiate a warrior or wizard class
             if (type==1){
                 playerCharacter = new Warrior(name);
                 db.createHero(playerCharacter);

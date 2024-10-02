@@ -1,6 +1,5 @@
 package game.board.cell.special;
 
-import game.board.cell.Cell;
 import game.board.cell.special.surpriseBoxLoot.equipment.offensive.spells.FireBall;
 import game.board.cell.special.surpriseBoxLoot.equipment.offensive.spells.Thunderbolt;
 import game.board.cell.special.surpriseBoxLoot.equipment.offensive.weapons.Mace;
@@ -8,8 +7,8 @@ import game.board.cell.special.surpriseBoxLoot.equipment.offensive.weapons.Sword
 import game.board.cell.special.surpriseBoxLoot.potion.GreaterPotionOfHealing;
 import game.board.cell.special.surpriseBoxLoot.potion.PotionOfHealing;
 
-public class SurpriseBox implements Cell {
-    private Cell loot;
+public class SurpriseBox {
+    private Object loot;
 
     public SurpriseBox() {
         int Rand = (int)(Math.random() * 6);
@@ -29,7 +28,7 @@ public class SurpriseBox implements Cell {
         }
     }
 
-    public Cell getLoot() {
+    public Object getLoot() {
         return loot;
     }
 }

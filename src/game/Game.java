@@ -92,6 +92,10 @@ public class Game {
         this.firstCharacter = firstCharacter;
     }
 
+    public Board getBoard() {
+        return board;
+    }
+
 
 
 

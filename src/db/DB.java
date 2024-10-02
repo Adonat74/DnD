@@ -34,12 +34,15 @@ public class DB {
         }
     }
 
-    public void getHeroes() throws SQLException {
+    public ResultSet getHeroes(boolean print) throws SQLException {
         String sql = "SELECT * FROM hero";
         ResultSet rs = stmt.executeQuery(sql);
-        while (rs.next()) {
-            System.out.print("ID: " + rs.getInt("id") + " NAME: " + rs.getString("name") + " TYPE: " + rs.getString("type") + "\n");
+        if (print) {
+            while (rs.next()) {
+                System.out.print("ID: " + rs.getInt("id") + " NAME: " + rs.getString("name") + " TYPE: " + rs.getString("type") + "\n");
+            }
         }
+        return rs;
     }
 
     public void createHero (PlayerCharacter playerCharacter) throws SQLException {
@@ -52,7 +55,6 @@ public class DB {
         pstmt.setInt(3, playerCharacter.getHealth());   // Set 'health' as the third parameter
         pstmt.setInt(4, playerCharacter.getAttack());   // Set 'attack' as the fourth parameter
         pstmt.setString(5, playerCharacter.getOffensiveEquipment());  // Set 'offensiveEquipment' as the fifth parameter (for weapon_spell)
-
         pstmt.executeUpdate();
     }
 

@@ -2,7 +2,7 @@ package game.board.cell.special.surpriseBoxLoot.equipment;
 
 import game.board.cell.Cell;
 
-public abstract class OffensiveEquipment implements Cell {
+public abstract class OffensiveEquipment {
     protected String type;
     protected int attackLevel;
     protected String emoji;

@@ -2,7 +2,7 @@ package game.board.cell.special;
 
 import game.board.cell.Cell;
 
-public class Enemy implements Cell {
+public class Enemy {
     protected int attack;
     protected int health;
     protected String type;

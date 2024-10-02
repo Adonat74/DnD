@@ -3,6 +3,7 @@ package game.playerInteraction;
 import character.PlayerCharacter;
 import db.DB;
 import game.Game;
+import game.board.Board;
 import game.board.cell.Cell;
 import game.board.cell.special.Enemy;
 
@@ -22,10 +23,12 @@ public class Fights {
 
 
 
+    private final Board board;
     private final Game game;
 
     public Fights(Game game) throws SQLException {
         this.game = game;
+        this.board = game.getBoard();
     }
 
     private void pause() throws InterruptedException {
@@ -33,9 +36,10 @@ public class Fights {
     }
 
 
-    public void fight(PlayerCharacter playerCharacter, int characterAttack, int characterHealth, ArrayList<Cell> board, DB db) throws InterruptedException, SQLException {
+    public void fight(PlayerCharacter playerCharacter, int characterAttack, int characterHealth, DB db, Cell<?> cell) throws InterruptedException, SQLException {
         Scanner scan = new Scanner(System.in);
-        Enemy enemy = (Enemy) board.get(game.getFirstCharacter()); // Cast en type Enemy
+
+        Enemy enemy = (Enemy) cell.getEntity(); // Cast en type Enemy
 
         System.out.println("Enemy detected ..." + lensEmoji);
         pause();
