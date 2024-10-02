@@ -6,11 +6,12 @@ import game.Game;
 import game.board.Board;
 import game.board.cell.Cell;
 import game.board.cell.special.Enemy;
+import util.DieRoll;
+import util.GetValidInputChoice;
+import util.Pause;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class Fights {
     String runEmoji = Character.toString(0x1F3C3);
@@ -22,18 +23,18 @@ public class Fights {
     String lensEmoji = Character.toString(0x1F50D);
 
 
-
+    private final Pause pause = new Pause();
     private final Board board;
     private final Game game;
 
-    public Fights(Game game) throws SQLException {
+    GetValidInputChoice getValidInputChoice = new GetValidInputChoice();
+
+
+    public Fights(Game game) throws SQLException, InterruptedException {
         this.game = game;
         this.board = game.getBoard();
     }
 
-    private void pause() throws InterruptedException {
-        TimeUnit.MILLISECONDS.sleep(500);
-    }
 
 
     public void fight(PlayerCharacter playerCharacter, int characterAttack, int characterHealth, DB db, Cell<?> cell) throws InterruptedException, SQLException {
@@ -42,43 +43,50 @@ public class Fights {
         Enemy enemy = (Enemy) cell.getEntity(); // Cast en type Enemy
 
         System.out.println("Enemy detected ..." + lensEmoji);
-        pause();
+        pause.pause(500);
 
         System.out.println("It's a " + enemy.getEnemyType() + " !" + enemy.getEmoji());
-        pause();
+        pause.pause(500);
 
         System.out.println("Your health: " + characterHealth + "  Enemy health: " + enemy.getEnemyHealth()+"\n"+ "Your attack: " + characterAttack + "  Enemy attack: " + enemy.getEnemyAttack());
-        pause();
+                pause.pause(500);
+
 
         while(playerCharacter.getHealth() > 0 && enemy.getEnemyHealth() > 0){
 
             System.out.println("Choose action > 1: attack" + strikeEmoji + "  2: run away" + runEmoji);
-            int choice = scan.nextInt();
+            int choice = getValidInputChoice.getValidInt(scan);
 
 
             if (choice == 1){
                 System.out.println("You strike !" + strikeEmoji);
                 int enemyHealth = enemy.getEnemyHealth();
                 enemy.setHealth(characterAttack);
-                pause();
+                        pause.pause(500);
+
                 System.out.println("Enemy health: " + enemyHealth + " - " + characterAttack + " > " + enemy.getEnemyHealth() + healthEmoji);
-                pause();
+                        pause.pause(500);
+
                 if (enemy.getEnemyHealth() <= 0) {
                     break;
                 }
             } else if (choice == 2){
                 System.out.println("You run away !" + runEmoji);
-                int sixFaceDie = (int)(Math.random() * 4)+1;
+                int dieRoll = new DieRoll(6).getDie();
 
-                game.setFirstCharacter(game.getFirstCharacter()-1);
-                System.out.println("You go back " + 1 + " cells !" + backArrowEmoji);
+                game.setFirstCharacter(game.getFirstCharacter()-dieRoll);
+                System.out.println("You go back " + dieRoll + " cells !" + backArrowEmoji);
+                System.out.println(playerCharacter.getName() + " is on square nb " + (game.getFirstCharacter()));
+
                 break;
             }
             System.out.println("Enemy strike !" + strikeEmoji);
-            pause();
+                    pause.pause(500);
+
             playerCharacter.setDamageTaken(enemy.getEnemyAttack());
             System.out.println("Your health: " + characterHealth + " - " + enemy.getEnemyAttack() + " > " + playerCharacter.getHealth() + healthEmoji);
-            pause();
+                    pause.pause(500);
+
 
             db.changeHealthPoints(playerCharacter);
         }

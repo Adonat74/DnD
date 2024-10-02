@@ -1,7 +1,7 @@
-package exception;
+package exceptions;
 
 public class CharacterOutOfBoardException extends Exception {
     public CharacterOutOfBoardException() {
-        System.out.println("player position out of the board length");
+        super("player position out of the board length");
     }
 }

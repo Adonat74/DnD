@@ -1,4 +1,4 @@
-package game.dieRoll;
+package util;
 
 public class DieRoll {
     private final int die;
