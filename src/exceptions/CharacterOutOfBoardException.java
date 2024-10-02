@@ -2,6 +2,6 @@ package exceptions;
 
 public class CharacterOutOfBoardException extends Exception {
     public CharacterOutOfBoardException() {
-        super("player position out of the board length");
+        super("You got to the 64 cell !! you win!");
     }
 }

@@ -35,16 +35,17 @@ public class DB {
         }
     }
 
-    public ResultSet getHeroes() throws SQLException, CharacterSavedListEmptyException {
+    public void getHeroes() throws SQLException, CharacterSavedListEmptyException {
         String sql = "SELECT * FROM hero";
         ResultSet rs = stmt.executeQuery(sql);
-        if (!rs.next()) {
+//        vérifie si le resut set est vide
+        if (!rs.isBeforeFirst()) {
             throw new CharacterSavedListEmptyException();
+        } else {
+            while (rs.next()) {
+                System.out.print("ID: " + rs.getInt("id") + " NAME: " + rs.getString("name") + " TYPE: " + rs.getString("type") + "\n");
+            }
         }
-        while (rs.next()) {
-            System.out.print("ID: " + rs.getInt("id") + " NAME: " + rs.getString("name") + " TYPE: " + rs.getString("type") + "\n");
-        }
-        return rs;
     }
 
     public void createHero (PlayerCharacter playerCharacter) throws SQLException {

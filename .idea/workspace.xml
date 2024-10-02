@@ -7,6 +7,8 @@
     <list default="true" id="d919e39e-2572-4c00-805e-6a82ccb2d651" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/CharacterOutOfBoardException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/CharacterOutOfBoardException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +104,7 @@
       <workItem from="1727419041178" duration="1968000" />
       <workItem from="1727436810508" duration="10922000" />
       <workItem from="1727679723203" duration="23370000" />
-      <workItem from="1727766625175" duration="31814000" />
+      <workItem from="1727766625175" duration="33787000" />
     </task>
     <servers />
   </component>

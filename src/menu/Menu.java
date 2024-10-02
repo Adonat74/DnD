@@ -10,6 +10,7 @@ import exceptions.CharacterSavedListEmptyException;
 import game.Game;
 import db.DB;
 import util.GetValidInputChoice;
+import util.Pause;
 
 
 public class Menu {
@@ -17,7 +18,9 @@ public class Menu {
     private int choice = 0;
     DB db = new DB();
     GetValidInputChoice getValidInputChoice = new GetValidInputChoice();
+    private final Pause pause = new Pause();
 
+    String gameOverEmoji = Character.toString(0x274C);
     String warriorEmoji = Character.toString(0x1F6E1);
     String mageEmoji = Character.toString(0x1F9D9);
     String listEmoji = Character.toString(0x1F4DC);
@@ -42,27 +45,25 @@ public class Menu {
                 if (choice==1){
                     createCharacter(scan);
                 } else if (choice==2){
-
-                    try {
-                        System.out.println("Choice of id > " + listEmoji);
-                        db.getHeroes();
-                        int id = getValidInputChoice.getValidInt(scan);
-                        createCharacter(scan, id);
-                    } catch (CharacterSavedListEmptyException e) {
-                        System.out.println(e.getMessage());
-
+//              Bloc qui verifie si il y a des personnages dans la bdd
+                    int id = -1;
+                    while (id == -1) {
+                        try {
+                            System.out.println("Choose a character by it's id : " + listEmoji);
+                            db.getHeroes();
+                        } catch (CharacterSavedListEmptyException e) {
+                            System.out.println(e.getMessage());
+                            choice = 0;
+                        }
+                        try {
+                            id = getValidInputChoice.getValidInt(scan);
+                            createCharacter(scan, id);
+                        } catch (Exception e) {
+                            System.out.println("This character does not exist" + gameOverEmoji);
+                            choice = 0;
+                            id = -1;
+                        }
                     }
-
-//                    if (db.getHeroes(false).next()) {
-//                        System.out.println("Choice of id > " + listEmoji);
-//                        db.getHeroes(true);
-//                        int id = getValidInputChoice.getValidInt(scan);
-//                        createCharacter(scan, id);
-//                    } else {
-//                        System.out.println("No character saved please create a new one !");
-//                        choice = 0;
-//                    }
-
 
                 } else if (choice==3){
                     System.exit(0);
@@ -79,6 +80,9 @@ public class Menu {
                         game.testPlay(playerCharacter, db);// lance le jeu avec la fonction play
                     } catch (CharacterOutOfBoardException e) {
                         System.out.println(e.getMessage());
+                        pause.pause(500);
+                        System.out.println("Press Enter to go back to the menu.");
+                        scan.nextLine();
                     }
                     choice = 0;
                 } else if (choice==2){

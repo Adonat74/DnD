@@ -58,7 +58,7 @@ public class Game {
         this.turn = 1;
 
         System.out.println(playerCharacter.getName() + " is on square nb " + (firstCharacter));
-        System.out.println("press enter to throw die" + dieEmoji);
+        System.out.println("Press enter to throw die" + dieEmoji);
         scan.nextLine();
         int dieRoll = new DieRoll(6).getDie();
         this.firstCharacter+=dieRoll;
@@ -67,11 +67,11 @@ public class Game {
     //      while player not on 64th square continue
         while(firstCharacter < board.getBoard().size() && !gameOver){
 
-            System.out.println("turn number : " + turn);
+            System.out.println("Turn number : " + turn);
             System.out.println(playerCharacter.getName() + " is on square nb " + (firstCharacter));
             testPlayTurn(playerCharacter, db);
             if (!gameOver) {
-                System.out.println("press enter to throw die" + dieEmoji);
+                System.out.println("Press enter to throw die" + dieEmoji);
                 scan.nextLine();
                 dieRoll = new DieRoll(6).getDie();
                 this.firstCharacter+=dieRoll;
