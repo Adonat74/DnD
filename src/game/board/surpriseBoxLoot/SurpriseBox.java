@@ -1,11 +1,11 @@
-package game.board.cell.special;
+package game.board.surpriseBoxLoot;
 
-import game.board.cell.special.surpriseBoxLoot.equipment.offensive.spells.FireBall;
-import game.board.cell.special.surpriseBoxLoot.equipment.offensive.spells.Thunderbolt;
-import game.board.cell.special.surpriseBoxLoot.equipment.offensive.weapons.Mace;
-import game.board.cell.special.surpriseBoxLoot.equipment.offensive.weapons.Sword;
-import game.board.cell.special.surpriseBoxLoot.potion.GreaterPotionOfHealing;
-import game.board.cell.special.surpriseBoxLoot.potion.PotionOfHealing;
+import game.board.surpriseBoxLoot.equipment.offensive.spells.FireBall;
+import game.board.surpriseBoxLoot.equipment.offensive.spells.Thunderbolt;
+import game.board.surpriseBoxLoot.equipment.offensive.weapons.Mace;
+import game.board.surpriseBoxLoot.equipment.offensive.weapons.Sword;
+import game.board.surpriseBoxLoot.potion.potions.GreaterPotionOfHealing;
+import game.board.surpriseBoxLoot.potion.potions.PotionOfHealing;
 
 public class SurpriseBox {
     private Object loot;

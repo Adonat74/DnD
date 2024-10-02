@@ -2,10 +2,8 @@ package game.board;
 
 import game.board.cell.Cell;
 import game.board.cell.special.EmptyCell;
-import game.board.cell.special.SurpriseBox;
-import game.board.cell.special.enemies.Dragon;
-import game.board.cell.special.enemies.Goblin;
-import game.board.cell.special.enemies.Wizard;
+import game.board.enemy.enemies.*;
+import game.board.surpriseBoxLoot.SurpriseBox;
 
 import java.util.ArrayList;
 
@@ -32,14 +30,18 @@ public class Board {
 
         while (this.enemies > 0) {
             int rand64 = randNum(64);
-            int rand3 = randNum(3);
+            int rand5 = randNum(5);
             if (this.board.get(rand64).getEntity() == null) {
-                if (rand3 == 0) {
+                if (rand5 == 0) {
                     this.board.get(rand64).setEntity(new Dragon());
-                } else if (rand3 == 1) {
+                } else if (rand5 == 1) {
                     this.board.get(rand64).setEntity(new Goblin());
-                } else {
+                } else if (rand5 == 2) {
                     this.board.get(rand64).setEntity(new Wizard());
+                } else if (rand5 == 3) {
+                    this.board.get(rand64).setEntity(new Orc());
+                } else if (rand5 == 4) {
+                    this.board.get(rand64).setEntity(new Ghost());
                 }
                 this.enemies--;
             }

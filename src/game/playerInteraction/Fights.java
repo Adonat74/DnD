@@ -5,7 +5,7 @@ import db.DB;
 import game.Game;
 import game.board.Board;
 import game.board.cell.Cell;
-import game.board.cell.special.Enemy;
+import game.board.enemy.Enemy;
 import util.DieRoll;
 import util.GetValidInputChoice;
 import util.Pause;
@@ -54,9 +54,11 @@ public class Fights {
 
         while(playerCharacter.getHealth() > 0 && enemy.getEnemyHealth() > 0){
 
-            System.out.println("Choose action > 1: attack" + strikeEmoji + "  2: run away" + runEmoji);
-            int choice = getValidInputChoice.getValidInt(scan);
-
+            int choice = 0;
+            while (choice!= 1 && choice!=2) {
+                System.out.println("Choose action > 1: attack" + strikeEmoji + "  2: run away" + runEmoji);
+                choice = getValidInputChoice.getValidInt(scan);
+            }
 
             if (choice == 1){
                 System.out.println("You strike !" + strikeEmoji);

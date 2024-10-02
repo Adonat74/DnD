@@ -6,9 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="d919e39e-2572-4c00-805e-6a82ccb2d651" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/CharacterOutOfBoardException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/CharacterOutOfBoardException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/character/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/PlayerCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/character/types/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/types/Mage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/character/types/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/types/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/enemy/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/SurpriseBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/SurpriseBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/enemies/Dragon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/enemy/enemies/Dragon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/enemies/Goblin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/enemy/enemies/Goblin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/enemies/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/enemy/enemies/Wizard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/potion/Potion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/DefensiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/DefensiveEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/OffensiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/OffensiveEquipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/defensive/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/defensive/Filter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/defensive/Shield.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/defensive/Shield.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/offensive/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/offensive/Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/offensive/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/offensive/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/offensive/spells/FireBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/offensive/spells/FireBall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/offensive/spells/Thunderbolt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/offensive/spells/Thunderbolt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/offensive/weapons/Mace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/offensive/weapons/Mace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/equipment/offensive/weapons/Sword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/offensive/weapons/Sword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/potion/GreaterPotionOfHealing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/potion/potions/GreaterPotionOfHealing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/board/cell/special/surpriseBoxLoot/potion/PotionOfHealing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/potion/potions/PotionOfHealing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/playerInteraction/Fights.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/playerInteraction/Fights.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/playerInteraction/PlayerEncounterInteractions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/playerInteraction/PlayerEncounterInteractions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +125,7 @@
       <workItem from="1727419041178" duration="1968000" />
       <workItem from="1727436810508" duration="10922000" />
       <workItem from="1727679723203" duration="23370000" />
-      <workItem from="1727766625175" duration="33787000" />
+      <workItem from="1727766625175" duration="37944000" />
     </task>
     <servers />
   </component>

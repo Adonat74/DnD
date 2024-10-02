@@ -1,6 +1,6 @@
-package game.board.cell.special.surpriseBoxLoot.equipment.offensive.spells;
+package game.board.surpriseBoxLoot.equipment.offensive.spells;
 
-import game.board.cell.special.surpriseBoxLoot.equipment.offensive.Spell;
+import game.board.surpriseBoxLoot.equipment.offensive.Spell;
 
 public class Thunderbolt extends Spell {
     public Thunderbolt() {

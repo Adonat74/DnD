@@ -1,6 +1,6 @@
-package game.board.cell.special.enemies;
+package game.board.enemy.enemies;
 
-import game.board.cell.special.Enemy;
+import game.board.enemy.Enemy;
 
 public class Wizard extends Enemy {
     public Wizard() {

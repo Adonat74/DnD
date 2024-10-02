@@ -1,6 +1,6 @@
-package game.board.cell.special.surpriseBoxLoot.equipment.offensive.weapons;
+package game.board.surpriseBoxLoot.equipment.offensive.weapons;
 
-import game.board.cell.special.surpriseBoxLoot.equipment.offensive.Weapon;
+import game.board.surpriseBoxLoot.equipment.offensive.Weapon;
 
 public class Mace extends Weapon {
     public Mace() {

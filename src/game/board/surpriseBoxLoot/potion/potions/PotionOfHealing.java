@@ -1,6 +1,6 @@
-package game.board.cell.special.surpriseBoxLoot.potion;
+package game.board.surpriseBoxLoot.potion.potions;
 
-import game.board.cell.special.surpriseBoxLoot.Potion;
+import game.board.surpriseBoxLoot.potion.Potion;
 
 public class PotionOfHealing extends Potion {
 

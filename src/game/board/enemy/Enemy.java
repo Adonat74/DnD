@@ -1,6 +1,4 @@
-package game.board.cell.special;
-
-import game.board.cell.Cell;
+package game.board.enemy;
 
 public class Enemy {
     protected int attack;

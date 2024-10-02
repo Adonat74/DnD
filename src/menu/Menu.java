@@ -55,6 +55,7 @@ public class Menu {
                             System.out.println(e.getMessage());
                             choice = 0;
                         }
+//                        Throw an error if the character id does not exist
                         try {
                             id = getValidInputChoice.getValidInt(scan);
                             createCharacter(scan, id);
