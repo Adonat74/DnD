@@ -32,6 +32,7 @@ public class PlayerEncounterInteractions {
 
     public void manageInteractions(Board board, int firstCharacter, PlayerCharacter playerCharacter, DB db) throws SQLException, InterruptedException {
 
+        OffensiveEquipment offensiveEquipment = playerCharacter.getOffensiveEquipment();
         int characterAttack = playerCharacter.getAttack();
         int characterHealth = playerCharacter.getHealth();
         String characterType = playerCharacter.getType();
@@ -52,7 +53,7 @@ public class PlayerEncounterInteractions {
                 System.out.println(enemyType + " run away !");
             } else {
                 Fights fight = new Fights(game, firstCharacter);
-                fight.fight(playerCharacter, characterAttack, characterHealth, db, cell);
+                fight.fight(playerCharacter, characterAttack, characterHealth, db, cell, offensiveEquipment);
             }
         } else if (cell.getEntity() instanceof Potion) {
             // gère les cases comprenant une potion
@@ -68,18 +69,36 @@ public class PlayerEncounterInteractions {
 
 
         } else if (cell.getEntity() instanceof OffensiveEquipment ) {
+
+
             if (cell.getEntity() instanceof Weapon && characterType.equals("warrior")) {
+
+
                 //            if you are a warrior, and it's a weapon you can equip the gear
-                int bonusAttack = ((Weapon) cell.getEntity()).getOffensiveEquipmentAttackLevel();
-                playerCharacter.setAttack(bonusAttack);
-                System.out.println(((Weapon) cell.getEntity()).getOffensiveEquipmentType() + ((Weapon) cell.getEntity()).getEmoji());
-                System.out.println("your attack increases : " + characterAttack + " > " + playerCharacter.getAttack() + upArrowEmoji);
+                int equipmentAttack = ((Weapon) cell.getEntity()).getOffensiveEquipmentAttackLevel();
+
+                playerCharacter.setOffensiveEquipment((Weapon) cell.getEntity());
+
+                System.out.println("A new offensive gear! "+((Weapon) cell.getEntity()).getOffensiveEquipmentType() + ((Weapon) cell.getEntity()).getEmoji() + "  Attack level : " + equipmentAttack);
+
+                System.out.println("You equip this gear : Your attack > " + playerCharacter.getAttack() + " +  Equipment Attack > " + equipmentAttack + upArrowEmoji);
+
+
             } else if (cell.getEntity() instanceof Spell && characterType.equals("mage")) {
+
+
                 //            if you are a mage, and it's a spell you can equip the gear
-                int bonusAttack = ((Spell) cell.getEntity()).getOffensiveEquipmentAttackLevel();
-                playerCharacter.setAttack(bonusAttack);
-                System.out.println(((Spell) cell.getEntity()).getOffensiveEquipmentType() + ((Spell) cell.getEntity()).getEmoji());
-                System.out.println("your attack increases : " + characterAttack + " > " + playerCharacter.getAttack() + upArrowEmoji);
+                int equipmentAttack = ((Spell) cell.getEntity()).getOffensiveEquipmentAttackLevel();
+
+                playerCharacter.setOffensiveEquipment((Spell) cell.getEntity());
+
+                System.out.println("A new offensive gear! "+((Spell) cell.getEntity()).getOffensiveEquipmentType() + ((Spell) cell.getEntity()).getEmoji());
+
+                System.out.println("You equip this gear : " + playerCharacter.getAttack() + " > " + equipmentAttack + upArrowEmoji);
+
+
+
+
             } else {
                 //            else you can't equip the gear
                 System.out.println(((OffensiveEquipment) cell.getEntity()).getOffensiveEquipmentType() + ((OffensiveEquipment) cell.getEntity()).getEmoji());

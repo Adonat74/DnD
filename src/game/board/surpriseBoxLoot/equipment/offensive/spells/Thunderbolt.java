@@ -7,7 +7,7 @@ public class Thunderbolt extends Spell {
 
         this.type = "Thunderbolt";
         this.attackLevel = 2;
-        this.emoji = Character.toString(0x1F329);
+        this.emoji = Character.toString(0x26A1);
 
     }
 }

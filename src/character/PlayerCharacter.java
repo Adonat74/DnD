@@ -36,7 +36,12 @@ public class PlayerCharacter {
     public void setDamageTaken(int damage) {
         this.health -= damage;
     }
-//    GETTERS
+
+    public void setOffensiveEquipment(OffensiveEquipment offensiveEquipment) {
+        this.offensiveEquipment = offensiveEquipment;
+    }
+
+    //    GETTERS
     public String getName() {
         return this.name;
     }
@@ -51,7 +56,7 @@ public class PlayerCharacter {
         return type;
     }
 
-    public String getOffensiveEquipment() {
-        return offensiveEquipment.getOffensiveEquipmentType();
+    public OffensiveEquipment getOffensiveEquipment() {
+        return offensiveEquipment;
     }
 }

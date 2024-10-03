@@ -57,7 +57,7 @@ public class DB {
         pstmt.setString(2, playerCharacter.getName());  // Set 'name' as the second parameter
         pstmt.setInt(3, playerCharacter.getHealth());   // Set 'health' as the third parameter
         pstmt.setInt(4, playerCharacter.getAttack());   // Set 'attack' as the fourth parameter
-        pstmt.setString(5, playerCharacter.getOffensiveEquipment());  // Set 'offensiveEquipment' as the fifth parameter (for weapon_spell)
+        pstmt.setString(5, playerCharacter.getOffensiveEquipment().getOffensiveEquipmentType());  // Set 'offensiveEquipment' as the fifth parameter (for weapon_spell)
         pstmt.executeUpdate();
     }
 

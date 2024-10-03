@@ -38,13 +38,13 @@ public class Game {
         board = new Board();
     }
 
-    public void testPlayTurn (PlayerCharacter playerCharacter, DB db) throws InterruptedException, SQLException {
+    public void testPlayTurn(PlayerCharacter playerCharacter, DB db) throws InterruptedException, SQLException {
         playerEncounterInteractions.manageInteractions(board, firstCharacter, playerCharacter, db);
     }
 
     public void testPlay(PlayerCharacter playerCharacter, DB db) throws InterruptedException, CharacterOutOfBoardException, SQLException {
 
-    //        permet de remettre à 0 les stats du joueur lors d'une nouvelle partie
+        //        permet de remettre à 0 les stats du joueur lors d'une nouvelle partie
         if (playerCharacter.getType().equals("warrior")) {
             playerCharacter = new Warrior(playerCharacter.getName());
         } else {
@@ -53,7 +53,7 @@ public class Game {
         board.resetBoard();
 
         Scanner scan = new Scanner(System.in);
-    //        reset the player pos and the turn number each new game
+        //        reset the player pos and the turn number each new game
         this.firstCharacter = 0;
         this.turn = 1;
 
@@ -61,11 +61,11 @@ public class Game {
         System.out.println("Press enter to throw die" + dieEmoji);
         scan.nextLine();
         int dieRoll = new DieRoll(6).getDie();
-        this.firstCharacter+=dieRoll;
+        this.firstCharacter += dieRoll;
         System.out.println("Die result : " + dieRoll + dieEmoji);
 
-    //      while player not on 64th square continue
-        while(firstCharacter < board.getBoard().size() && !gameOver){
+        //      while player not on 64th square continue
+        while (firstCharacter < board.getBoard().size() && !gameOver) {
 
             System.out.println("Turn number : " + turn);
             System.out.println(playerCharacter.getName() + " is on square nb " + (firstCharacter));
@@ -74,24 +74,25 @@ public class Game {
                 System.out.println("Press enter to throw die" + dieEmoji);
                 scan.nextLine();
                 dieRoll = new DieRoll(6).getDie();
-                this.firstCharacter+=dieRoll;
+                this.firstCharacter += dieRoll;
                 System.out.println("Die result : " + dieRoll + dieEmoji);
                 pause.pause(500);
 
                 turn++;
             }
-            if (firstCharacter >64) {
+            if (firstCharacter >= 64) {
                 throw new CharacterOutOfBoardException();
             }
         }
     }
 
 
-// GETTERS
+    // GETTERS
     public int getFirstCharacter() {
         return firstCharacter;
     }
-//SETTERS
+
+    //SETTERS
     public void setGameOver(boolean gameOver) {
         this.gameOver = gameOver;
     }
@@ -105,48 +106,4 @@ public class Game {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-    public void play(PlayerCharacter playerCharacter) throws InterruptedException, CharacterOutOfBoardException {
-    //        reset the player pos and the turn number each new game
-        this.firstCharacter = 1;
-        this.turn = 1;
-        System.out.println("turn number : " + turn);
-        System.out.println(playerCharacter.getName() + " is on square nb" + firstCharacter);
-
-    //      while player not on 64th square continue
-        while(firstCharacter<64){
-
-    //          instance of a diceRoll that return a random number between 1 and 6.
-            int dieRoll = new DieRoll(6).getDie();
-            firstCharacter+= dieRoll;
-            turn++;
-            TimeUnit.MILLISECONDS.sleep(300);
-            System.out.println("turn number : " + turn);
-            System.out.println(playerCharacter.getName() + " is on square nb" + firstCharacter);
-    //            if player is on square 64 or more after a die roll place the player on the 64th square.
-            if (firstCharacter >64) {
-                throw new CharacterOutOfBoardException();
-            }
-        }
-    }
 }

@@ -6,6 +6,7 @@ import game.Game;
 import game.board.Board;
 import game.board.cell.Cell;
 import game.board.enemy.Enemy;
+import game.board.surpriseBoxLoot.equipment.OffensiveEquipment;
 import util.DieRoll;
 import util.GetValidInputChoice;
 import util.Pause;
@@ -37,7 +38,7 @@ public class Fights {
 
 
 
-    public void fight(PlayerCharacter playerCharacter, int characterAttack, int characterHealth, DB db, Cell<?> cell) throws InterruptedException, SQLException {
+    public void fight(PlayerCharacter playerCharacter, int characterAttack, int characterHealth, DB db, Cell<?> cell, OffensiveEquipment offensiveEquipment) throws InterruptedException, SQLException {
         Scanner scan = new Scanner(System.in);
 
         Enemy enemy = (Enemy) cell.getEntity(); // Cast en type Enemy
@@ -47,9 +48,12 @@ public class Fights {
 
         System.out.println("It's a " + enemy.getEnemyType() + " !" + enemy.getEmoji());
         pause.pause(500);
+        offensiveEquipment.isAgainstSpecialEnemy(enemy);
 
-        System.out.println("Your health: " + characterHealth + "  Enemy health: " + enemy.getEnemyHealth()+"\n"+ "Your attack: " + characterAttack + "  Enemy attack: " + enemy.getEnemyAttack());
+        System.out.println("Your health: " + characterHealth +  " Your attack: " + characterAttack + "   Your Equipment : "+ offensiveEquipment.getOffensiveEquipmentType() + "   Equipment Attack : "+ offensiveEquipment.getOffensiveEquipmentAttackLevel() +"\n"+ "Enemy health: " + enemy.getEnemyHealth()+"  Enemy attack: " + enemy.getEnemyAttack());
         pause.pause(500);
+
+
 
 
         while(playerCharacter.getHealth() > 0 && enemy.getEnemyHealth() > 0){
@@ -63,10 +67,10 @@ public class Fights {
             if (choice == 1){
                 System.out.println("You strike !" + strikeEmoji);
                 int enemyHealth = enemy.getEnemyHealth();
-                enemy.setHealth(characterAttack);
+                enemy.setHealth(characterAttack + offensiveEquipment.getOffensiveEquipmentAttackLevel());
                 pause.pause(500);
 
-                System.out.println("Enemy health: " + enemyHealth + " - " + characterAttack + " > " + enemy.getEnemyHealth() + healthEmoji);
+                System.out.println("Enemy health: " + enemyHealth + " - " + characterAttack+ "+"  + offensiveEquipment.getOffensiveEquipmentAttackLevel()+" > " + enemy.getEnemyHealth() + healthEmoji);
                 pause.pause(500);
 
                 if (enemy.getEnemyHealth() <= 0) {
