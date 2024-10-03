@@ -13,7 +13,6 @@ import util.Pause;
 
 import java.sql.SQLException;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 
 public class Game {
@@ -21,7 +20,6 @@ public class Game {
     private final Board board;
     private int turn;
     private boolean gameOver = false;
-    private final Pause pause = new Pause();
 
     GetValidInputChoice getValidInputChoice = new GetValidInputChoice();
 
@@ -76,7 +74,7 @@ public class Game {
                 dieRoll = new DieRoll(6).getDie();
                 this.firstCharacter += dieRoll;
                 System.out.println("Die result : " + dieRoll + dieEmoji);
-                pause.pause(500);
+                Pause.pause(500);
 
                 turn++;
             }

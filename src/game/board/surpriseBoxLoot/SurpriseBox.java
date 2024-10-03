@@ -6,14 +6,15 @@ import game.board.surpriseBoxLoot.equipment.offensive.spells.Thunderbolt;
 import game.board.surpriseBoxLoot.equipment.offensive.weapons.Bow;
 import game.board.surpriseBoxLoot.equipment.offensive.weapons.Mace;
 import game.board.surpriseBoxLoot.equipment.offensive.weapons.Sword;
-import game.board.surpriseBoxLoot.potion.potions.GreaterPotionOfHealing;
-import game.board.surpriseBoxLoot.potion.potions.PotionOfHealing;
+import game.board.surpriseBoxLoot.potions.attributePotions.ThunderclapPotion;
+import game.board.surpriseBoxLoot.potions.healingPotions.GreaterPotionOfHealing;
+import game.board.surpriseBoxLoot.potions.healingPotions.PotionOfHealing;
 
 public class SurpriseBox {
     private Object loot;
 
     public SurpriseBox() {
-        int Rand = (int)(Math.random() * 8);
+        int Rand = (int)(Math.random() * 9);
 
         if (Rand == 0) {
             loot = new Sword();
@@ -31,6 +32,8 @@ public class SurpriseBox {
             loot = new Bow();
         } else if (Rand == 7) {
             loot = new Invisibility();
+        } else if (Rand == 8) {
+            loot = new ThunderclapPotion();
         }
     }
 

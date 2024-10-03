@@ -1,4 +1,4 @@
-package game.playerInteraction;
+package game.playerInteraction.fights;
 
 import character.PlayerCharacter;
 import db.DB;
@@ -22,9 +22,9 @@ public class Fights {
     String gameOverEmoji = Character.toString(0x274C);
     String backArrowEmoji = Character.toString(0x1F519);
     String lensEmoji = Character.toString(0x1F50D);
+    String downArrowEmoji = Character.toString(0x2B07);
 
 
-    private final Pause pause = new Pause();
     private final Board board;
     private final Game game;
 
@@ -44,14 +44,14 @@ public class Fights {
         Enemy enemy = (Enemy) cell.getEntity(); // Cast en type Enemy
 
         System.out.println("Enemy detected ..." + lensEmoji);
-        pause.pause(500);
+        Pause.pause(500);
 
         System.out.println("It's a " + enemy.getEnemyType() + " !" + enemy.getEmoji());
-        pause.pause(500);
+        Pause.pause(500);
         offensiveEquipment.isAgainstSpecialEnemy(enemy);
 
         System.out.println("Your health: " + characterHealth +  " Your attack: " + characterAttack + "   Your Equipment : "+ offensiveEquipment.getOffensiveEquipmentType() + "   Equipment Attack : "+ offensiveEquipment.getOffensiveEquipmentAttackLevel() +"\n"+ "Enemy health: " + enemy.getEnemyHealth()+"  Enemy attack: " + enemy.getEnemyAttack());
-        pause.pause(500);
+        Pause.pause(500);
 
 
 
@@ -68,10 +68,10 @@ public class Fights {
                 System.out.println("You strike !" + strikeEmoji);
                 int enemyHealth = enemy.getEnemyHealth();
                 enemy.setHealth(characterAttack + offensiveEquipment.getOffensiveEquipmentAttackLevel());
-                pause.pause(500);
+                Pause.pause(500);
 
                 System.out.println("Enemy health: " + enemyHealth + " - " + characterAttack+ "+"  + offensiveEquipment.getOffensiveEquipmentAttackLevel()+" > " + enemy.getEnemyHealth() + healthEmoji);
-                pause.pause(500);
+                Pause.pause(500);
 
                 if (enemy.getEnemyHealth() <= 0) {
                     break;
@@ -89,15 +89,19 @@ public class Fights {
                 }
 
                 System.out.println(playerCharacter.getName() + " is on square nb " + (game.getFirstCharacter()));
-
+                if (playerCharacter.getHasAttackBonus()) {
+                    playerCharacter.setAttack(characterAttack/2);
+                    playerCharacter.setHasAttackBonus(false);
+                    System.out.println("The Thunderclap potion effects vanishes : Your Attack" + " > " + playerCharacter.getAttack() + downArrowEmoji);
+                }
                 break;
             }
             System.out.println("Enemy strike !" + strikeEmoji);
-            pause.pause(500);
+            Pause.pause(500);
 
             playerCharacter.setDamageTaken(enemy.getEnemyAttack());
             System.out.println("Your health: " + characterHealth + " - " + enemy.getEnemyAttack() + " > " + playerCharacter.getHealth() + healthEmoji);
-            pause.pause(500);
+            Pause.pause(500);
             db.changeHealthPoints(playerCharacter);
         }
 
@@ -106,10 +110,16 @@ public class Fights {
             System.out.println("You killed the enemy !" + deathEmoji);
 //            Appel la fonction qui toggle si un enemy est mort dans le tableau
             board.setDeadEnemy(game.getFirstCharacter());
+
         } else if (playerCharacter.getHealth() <= 0) {
             System.out.println("Enemy killed you !" + deathEmoji + deathEmoji + deathEmoji);
             game.setGameOver(true);
             System.out.println("GAME OVER !" + gameOverEmoji);
+        }
+        if (playerCharacter.getHasAttackBonus()) {
+            playerCharacter.setAttack(characterAttack/2);
+            playerCharacter.setHasAttackBonus(false);
+            System.out.println("The Thunderclap potion effects vanishes : Your Attack" + " > " + playerCharacter.getAttack() + downArrowEmoji);
         }
     }
 }

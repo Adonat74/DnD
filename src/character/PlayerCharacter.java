@@ -10,6 +10,8 @@ public class PlayerCharacter {
     protected int attack;
     protected OffensiveEquipment offensiveEquipment;
     protected DefensiveEquipment defensiveEquipment;
+    protected boolean hasAttackBonus = false;
+
 
     public PlayerCharacter() {
     }
@@ -31,10 +33,14 @@ public class PlayerCharacter {
         this.health += health;
     }
     public void setAttack(int attack) {
-        this.attack += attack;
+        this.attack = attack;
     }
     public void setDamageTaken(int damage) {
         this.health -= damage;
+    }
+
+    public void setHasAttackBonus(boolean hasAttackBonus) {
+        this.hasAttackBonus = hasAttackBonus;
     }
 
     public void setOffensiveEquipment(OffensiveEquipment offensiveEquipment) {
@@ -50,6 +56,10 @@ public class PlayerCharacter {
     }
     public int getAttack() {
         return this.attack;
+    }
+
+    public boolean getHasAttackBonus() {
+        return hasAttackBonus;
     }
 
     public String getType() {

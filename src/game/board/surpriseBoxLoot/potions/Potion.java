@@ -1,4 +1,4 @@
-package game.board.surpriseBoxLoot.potion;
+package game.board.surpriseBoxLoot.potions;
 
 public class Potion {
     protected int healthBonus;

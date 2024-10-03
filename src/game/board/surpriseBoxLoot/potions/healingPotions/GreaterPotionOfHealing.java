@@ -1,4 +1,4 @@
-package game.board.surpriseBoxLoot.potion.potions;
+package game.board.surpriseBoxLoot.potions.healingPotions;
 
 public class GreaterPotionOfHealing extends PotionOfHealing {
     public GreaterPotionOfHealing() {
