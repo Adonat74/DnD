@@ -1,7 +1,9 @@
 package game.board.surpriseBoxLoot;
 
 import game.board.surpriseBoxLoot.equipment.offensive.spells.FireBall;
+import game.board.surpriseBoxLoot.equipment.offensive.spells.Invisibility;
 import game.board.surpriseBoxLoot.equipment.offensive.spells.Thunderbolt;
+import game.board.surpriseBoxLoot.equipment.offensive.weapons.Bow;
 import game.board.surpriseBoxLoot.equipment.offensive.weapons.Mace;
 import game.board.surpriseBoxLoot.equipment.offensive.weapons.Sword;
 import game.board.surpriseBoxLoot.potion.potions.GreaterPotionOfHealing;
@@ -11,7 +13,7 @@ public class SurpriseBox {
     private Object loot;
 
     public SurpriseBox() {
-        int Rand = (int)(Math.random() * 6);
+        int Rand = (int)(Math.random() * 8);
 
         if (Rand == 0) {
             loot = new Sword();
@@ -25,6 +27,10 @@ public class SurpriseBox {
             loot = new GreaterPotionOfHealing();
         } else if (Rand == 5) {
             loot = new PotionOfHealing();
+        } else if (Rand == 6) {
+            loot = new Bow();
+        } else if (Rand == 7) {
+            loot = new Invisibility();
         }
     }
 

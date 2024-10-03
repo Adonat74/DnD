@@ -9,6 +9,7 @@ import game.board.surpriseBoxLoot.equipment.offensive.weapons.Bow;
 public abstract class OffensiveEquipment {
     protected String type;
     protected int attackLevel;
+    protected int bonusDamage;
     protected String emoji;
 
 
@@ -17,11 +18,13 @@ public abstract class OffensiveEquipment {
 //    Verify the enemy type and the equipment type so that attack increase against these enemies
     public void isAgainstSpecialEnemy(Enemy enemy) {
         if (enemy instanceof Dragon && this instanceof Bow) {
-            this.attackLevel+=2;
-            System.out.print("It's a dragon your Bow makes more damage!");
+            this.bonusDamage=2;
+            System.out.println("It's a dragon your Bow makes more damage!");
         } else if (enemy instanceof Ghost && this instanceof Invisibility){
-            this.attackLevel+=3;
-            System.out.print("It's a Ghost your Invisibility makes more damage!");
+            this.bonusDamage=3;
+            System.out.println("It's a Ghost your Invisibility makes more damage!");
+        } else {
+            bonusDamage=0;
         }
     }
 
@@ -30,7 +33,7 @@ public abstract class OffensiveEquipment {
         return type;
     }
     public int getOffensiveEquipmentAttackLevel() {
-        return attackLevel;
+        return attackLevel+bonusDamage;
     }
 
     public String getEmoji() {
