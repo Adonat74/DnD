@@ -11,19 +11,13 @@ import game.Game;
 import db.DB;
 import util.GetValidInputChoice;
 import util.Pause;
-
+import util.ConsolePrints;
 
 public class Menu {
     private PlayerCharacter playerCharacter;
     private int choice = 0;
     DB db = new DB();
     GetValidInputChoice getValidInputChoice = new GetValidInputChoice();
-    private final Pause pause = new Pause();
-
-    String gameOverEmoji = Character.toString(0x274C);
-    String warriorEmoji = Character.toString(0x1F6E1);
-    String mageEmoji = Character.toString(0x1F9D9);
-    String listEmoji = Character.toString(0x1F4DC);
 
 
     public Menu() throws SQLException {
@@ -38,7 +32,7 @@ public class Menu {
             choice = 0;
     //      start the game with a choice between quit or create character
             while (choice!=2 && choice!=1 && choice!=3) {
-                System.out.println("Choice > 1: Character creation 2: Select existing character 3: Quit game");
+                ConsolePrints.printHomeMenu();
                 
                 choice = getValidInputChoice.getValidInt(scan);
                 
@@ -49,7 +43,7 @@ public class Menu {
                     int id = -1;
                     while (id == -1) {
                         try {
-                            System.out.println("Choose a character by it's id : " + listEmoji);
+                            ConsolePrints.printCharacterChoice();
                             db.getHeroes();
                         } catch (CharacterSavedListEmptyException e) {
                             System.out.println(e.getMessage());
@@ -60,7 +54,7 @@ public class Menu {
                             id = getValidInputChoice.getValidInt(scan);
                             createCharacter(scan, id);
                         } catch (Exception e) {
-                            System.out.println("This character does not exist" + gameOverEmoji);
+                            ConsolePrints.printCharacterDoesntExist();
                             choice = 0;
                             id = -1;
                         }
@@ -74,15 +68,16 @@ public class Menu {
 
             choice = 0;
             while (choice!=2 && choice!=1 && choice!=3) {
-                System.out.println("Choice > 1: Play  2: New character  3: Quit game");
+                ConsolePrints.printPlayMenu();
                 choice = getValidInputChoice.getValidInt(scan);
                 if (choice==1){
                     try{
-                        game.testPlay(playerCharacter, db);// lance le jeu avec la fonction play
+                        // lance le jeu avec la fonction play
+                        game.testPlay(playerCharacter, db);
                     } catch (CharacterOutOfBoardException e) {
                         System.out.println(e.getMessage());
-                        pause.pause(500);
-                        System.out.println("Press Enter to go back to the menu.");
+                        Pause.pause(500);
+                        ConsolePrints.printEnterToMenu();
                         scan.nextLine();
                     }
                     choice = 0;
@@ -111,12 +106,12 @@ public class Menu {
             int type = 0;
 //        choose a type 1 for warrior and 2 for wizard
             while (type!=2 && type!=1) {
-                System.out.println("Enter character type > 1: warrior" + warriorEmoji + "  2: mage" + mageEmoji);
+                ConsolePrints.printTypeChoice();
                 type = getValidInputChoice.getValidInt(scan);
                 scan.nextLine();
             }
             // then enter a name
-            System.out.println("Enter character name");
+            ConsolePrints.printEnterName();
             String name = getValidInputChoice.getValidString(scan);
             // instantiate a warrior or wizard class
             if (type==1){

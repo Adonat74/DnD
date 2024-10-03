@@ -7,6 +7,7 @@ import game.board.Board;
 import game.board.cell.Cell;
 import game.board.enemy.Enemy;
 import game.board.surpriseBoxLoot.equipment.OffensiveEquipment;
+import util.ConsolePrints;
 import util.DieRoll;
 import util.GetValidInputChoice;
 import util.Pause;
@@ -43,83 +44,81 @@ public class Fights {
 
         Enemy enemy = (Enemy) cell.getEntity(); // Cast en type Enemy
 
-        System.out.println("Enemy detected ..." + lensEmoji);
-        Pause.pause(500);
+        ConsolePrints.printEnemyDetected(enemy);
 
-        System.out.println("It's a " + enemy.getEnemyType() + " !" + enemy.getEmoji());
-        Pause.pause(500);
         offensiveEquipment.isAgainstSpecialEnemy(enemy);
 
-        System.out.println("Your health: " + characterHealth +  " Your attack: " + characterAttack + "   Your Equipment : "+ offensiveEquipment.getOffensiveEquipmentType() + "   Equipment Attack : "+ offensiveEquipment.getOffensiveEquipmentAttackLevel() +"\n"+ "Enemy health: " + enemy.getEnemyHealth()+"  Enemy attack: " + enemy.getEnemyAttack());
-        Pause.pause(500);
-
-
+        ConsolePrints.printCharacterInfos(characterHealth, characterAttack, offensiveEquipment, enemy);
 
 
         while(playerCharacter.getHealth() > 0 && enemy.getEnemyHealth() > 0){
 
             int choice = 0;
             while (choice!= 1 && choice!=2) {
-                System.out.println("Choose action > 1: attack" + strikeEmoji + "  2: run away" + runEmoji);
+                ConsolePrints.printFightChoice();
                 choice = getValidInputChoice.getValidInt(scan);
             }
 
             if (choice == 1){
-                System.out.println("You strike !" + strikeEmoji);
+                ConsolePrints.printYouStrike();
+
                 int enemyHealth = enemy.getEnemyHealth();
                 enemy.setHealth(characterAttack + offensiveEquipment.getOffensiveEquipmentAttackLevel());
-                Pause.pause(500);
 
-                System.out.println("Enemy health: " + enemyHealth + " - " + characterAttack+ "+"  + offensiveEquipment.getOffensiveEquipmentAttackLevel()+" > " + enemy.getEnemyHealth() + healthEmoji);
-                Pause.pause(500);
+                ConsolePrints.printEnemyHealthUpdate(enemyHealth, characterAttack, offensiveEquipment, enemy);
 
                 if (enemy.getEnemyHealth() <= 0) {
                     break;
                 }
             } else if (choice == 2){
-                System.out.println("You run away !" + runEmoji);
+                ConsolePrints.printYouRunAway();
                 int dieRoll = new DieRoll(6).getDie();
 
                 if (game.getFirstCharacter() < dieRoll) {
                     game.setFirstCharacter(0);
-                    System.out.println("You go back " + game.getFirstCharacter() + " cells !" + backArrowEmoji);
+                    ConsolePrints.printYouGoBack(game);
+
                 } else {
                     game.setFirstCharacter(game.getFirstCharacter()-dieRoll);
-                    System.out.println("You go back " + dieRoll + " cells !" + backArrowEmoji);
-                }
+                    ConsolePrints.printYouGoBackDie(dieRoll);
 
-                System.out.println(playerCharacter.getName() + " is on square nb " + (game.getFirstCharacter()));
+                }
+                int firstCharacter = game.getFirstCharacter();
+                ConsolePrints.printIsOnSquare(playerCharacter, firstCharacter);
+
                 if (playerCharacter.getHasAttackBonus()) {
                     playerCharacter.setAttack(characterAttack/2);
                     playerCharacter.setHasAttackBonus(false);
-                    System.out.println("The Thunderclap potion effects vanishes : Your Attack" + " > " + playerCharacter.getAttack() + downArrowEmoji);
+
+                    ConsolePrints.printThunderclapNoEffect(playerCharacter);
                 }
                 break;
             }
-            System.out.println("Enemy strike !" + strikeEmoji);
-            Pause.pause(500);
+            ConsolePrints.printEnemyStrike();
 
             playerCharacter.setDamageTaken(enemy.getEnemyAttack());
-            System.out.println("Your health: " + characterHealth + " - " + enemy.getEnemyAttack() + " > " + playerCharacter.getHealth() + healthEmoji);
-            Pause.pause(500);
+
+            ConsolePrints.printCharacterHealthUpdate(characterHealth, enemy, playerCharacter);
+
             db.changeHealthPoints(playerCharacter);
         }
 
 
         if (enemy.getEnemyHealth()<= 0) {
-            System.out.println("You killed the enemy !" + deathEmoji);
+            ConsolePrints.printYouKilled();
 //            Appel la fonction qui toggle si un enemy est mort dans le tableau
             board.setDeadEnemy(game.getFirstCharacter());
 
         } else if (playerCharacter.getHealth() <= 0) {
-            System.out.println("Enemy killed you !" + deathEmoji + deathEmoji + deathEmoji);
+            ConsolePrints.printEnemyKilledYou();
+
             game.setGameOver(true);
-            System.out.println("GAME OVER !" + gameOverEmoji);
+            ConsolePrints.printGameOver();
         }
         if (playerCharacter.getHasAttackBonus()) {
             playerCharacter.setAttack(characterAttack/2);
             playerCharacter.setHasAttackBonus(false);
-            System.out.println("The Thunderclap potion effects vanishes : Your Attack" + " > " + playerCharacter.getAttack() + downArrowEmoji);
+            ConsolePrints.printThunderclapNoEffect(playerCharacter);
         }
     }
 }

@@ -5,21 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d919e39e-2572-4c00-805e-6a82ccb2d651" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/potions/healingPotions/GreaterPotionOfHealing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/potions/healingPotions/PotionOfHealing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/PlayerCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/PlayerCharacter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/SurpriseBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/SurpriseBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/OffensiveEquipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/OffensiveEquipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/offensive/spells/Invisibility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/offensive/spells/Invisibility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/offensive/weapons/Bow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/equipment/offensive/weapons/Bow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/potion/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/potions/Potion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/potion/potions/GreaterPotionOfHealing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/board/surpriseBoxLoot/potion/potions/PotionOfHealing.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/playerInteraction/Fights.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/playerInteraction/fights/Fights.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/playerInteraction/PlayerEncounterInteractions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/playerInteraction/PlayerEncounterInteractions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Pause.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Pause.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/playerInteraction/fights/Fights.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/playerInteraction/fights/Fights.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/playerInteraction/objects/OffensiveGearInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/playerInteraction/objects/OffensiveGearInteraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/playerInteraction/objects/PotionsInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/playerInteraction/objects/PotionsInteraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +107,7 @@
       <workItem from="1727436810508" duration="10922000" />
       <workItem from="1727679723203" duration="23370000" />
       <workItem from="1727766625175" duration="40734000" />
-      <workItem from="1727938950229" duration="14296000" />
+      <workItem from="1727938950229" duration="20840000" />
     </task>
     <servers />
   </component>

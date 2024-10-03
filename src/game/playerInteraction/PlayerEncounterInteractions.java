@@ -11,20 +11,15 @@ import game.board.enemy.enemies.Ghost;
 import game.board.enemy.enemies.Orc;
 import game.board.surpriseBoxLoot.potions.Potion;
 import game.board.surpriseBoxLoot.equipment.OffensiveEquipment;
-import game.board.surpriseBoxLoot.equipment.offensive.Spell;
-import game.board.surpriseBoxLoot.equipment.offensive.Weapon;
 import game.playerInteraction.fights.Fights;
 import game.playerInteraction.objects.OffensiveGearInteraction;
 import game.playerInteraction.objects.PotionsInteraction;
-import util.Pause;
+import util.ConsolePrints;
 
 import java.sql.SQLException;
 import java.util.Objects;
 
 public class PlayerEncounterInteractions {
-
-    String upArrowEmoji = Character.toString(0x1F51D);
-    String crossEmoji = Character.toString(0x274C);
 
     private final Game game;
 
@@ -48,25 +43,22 @@ public class PlayerEncounterInteractions {
             // gère les cases comprenant un ennemi
 
             if (((Enemy) cell.getEntity()).getIsDead()){
-                System.out.println(enemyType + " is already dead");
+
+                ConsolePrints.printIsDead(enemyType);
+
             } else if (cell.getEntity() instanceof Orc && Objects.equals(characterType, "mage") || cell.getEntity() instanceof Ghost && Objects.equals(characterType, "warrior")) {
-                System.out.println("You are a " + characterType + ", " + enemyType + " fear you! ");
-                Pause.pause(500);
-                System.out.println(enemyType + " run away !");
+                ConsolePrints.printSpecialEnemyInteraction(characterType, enemyType);
             } else {
                 Fights fight = new Fights(game, firstCharacter);
                 fight.fight(playerCharacter, characterAttack, characterHealth, db, cell, offensiveEquipment);
             }
         } else if (cell.getEntity() instanceof Potion) {
-
             // gère les cases comprenant une potion
-            new PotionsInteraction().potionsInteraction(cell, playerCharacter, db);
-
-
+            PotionsInteraction.interact(cell, playerCharacter, db);
         } else if (cell.getEntity() instanceof EmptyCell) {
             System.out.println("empty cell");
         } else if (cell.getEntity() instanceof OffensiveEquipment ) {
-            new OffensiveGearInteraction().interact(cell, playerCharacter);
+            OffensiveGearInteraction.interact(cell, playerCharacter);
         }
     }
 }

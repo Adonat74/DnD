@@ -6,6 +6,7 @@ import character.types.Warrior;
 import db.DB;
 import game.board.Board;
 import exceptions.CharacterOutOfBoardException;
+import util.ConsolePrints;
 import util.DieRoll;
 import game.playerInteraction.PlayerEncounterInteractions;
 import util.GetValidInputChoice;
@@ -23,7 +24,6 @@ public class Game {
 
     GetValidInputChoice getValidInputChoice = new GetValidInputChoice();
 
-    String dieEmoji = Character.toString(0x1F3B2);
 
 
     private final PlayerEncounterInteractions playerEncounterInteractions;
@@ -54,26 +54,25 @@ public class Game {
         //        reset the player pos and the turn number each new game
         this.firstCharacter = 0;
         this.turn = 1;
-
-        System.out.println(playerCharacter.getName() + " is on square nb " + (firstCharacter));
-        System.out.println("Press enter to throw die" + dieEmoji);
+        ConsolePrints.printIsOnSquare(playerCharacter, firstCharacter);
+        ConsolePrints.printEnterToThrowDie();
         scan.nextLine();
         int dieRoll = new DieRoll(6).getDie();
         this.firstCharacter += dieRoll;
-        System.out.println("Die result : " + dieRoll + dieEmoji);
+        ConsolePrints.printDieResult(dieRoll);
 
         //      while player not on 64th square continue
         while (firstCharacter < board.getBoard().size() && !gameOver) {
 
-            System.out.println("Turn number : " + turn);
-            System.out.println(playerCharacter.getName() + " is on square nb " + (firstCharacter));
+            ConsolePrints.printTurn(turn);
+            ConsolePrints.printIsOnSquare(playerCharacter, firstCharacter);
             testPlayTurn(playerCharacter, db);
             if (!gameOver) {
-                System.out.println("Press enter to throw die" + dieEmoji);
+                ConsolePrints.printEnterToThrowDie();
                 scan.nextLine();
                 dieRoll = new DieRoll(6).getDie();
                 this.firstCharacter += dieRoll;
-                System.out.println("Die result : " + dieRoll + dieEmoji);
+                ConsolePrints.printDieResult(dieRoll);
                 Pause.pause(500);
 
                 turn++;
