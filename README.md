@@ -3,6 +3,9 @@
 
 A text-based role-playing game inspired by Dungeons & Dragons, implemented in Java. This project offers a console-based adventure where players can create characters, explore, battle, and interact within a fantasy world.
 
+![alt text](image/Capture%20d’écran%20du%202024-11-06%2020-12-40.png)
+
+
 ## Table of Contents
 
 - [Features](#features)
